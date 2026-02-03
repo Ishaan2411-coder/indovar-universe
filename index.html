@@ -11,41 +11,75 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: 'Georgia', serif;
+      font-family: Arial, sans-serif;
       overflow: hidden;
-    }
-
-    .text {
-      position: absolute;
-      opacity: 0;
-      font-size: 2em;
-      animation: fade 6s ease-in-out forwards;
       text-align: center;
-      padding: 20px;
     }
 
-    .t2 { animation-delay: 6s; }
-    .t3 { animation-delay: 12s; }
-    .t4 { animation-delay: 18s; }
-    .t5 { animation-delay: 24s; }
+    #text {
+      font-size: 2.5rem;
+      opacity: 1;
+      transition: opacity 2s;
+    }
 
-    @keyframes fade {
-      0% { opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; }
+    #countdown {
+      display: none;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+
+    .small {
+      font-size: 1rem;
+      opacity: 0.6;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 
 <body>
-  <div class="text t1">The future was not destroyed in one day…</div>
-  <div class="text t2">It was built silently… by one decision.</div>
-  <div class="text t3">When the world needed answers…</div>
-  <div class="text t4">It found a helper.</div>
-  <div class="text t5">
-    <strong>INDOVAR UNIVERSE</strong><br>
-    <small>Phase One</small>
+
+  <div id="text">
+    INDOVAR UNIVERSE<br><br>
+    <span class="small">Phase One Begins</span>
   </div>
+
+  <div id="countdown">
+    <div class="small">COUNTDOWN TO 10 MARCH</div>
+    <div id="timer"></div>
+  </div>
+
+  <script>
+    const targetDate = new Date("March 10, 2026 00:00:00").getTime();
+
+    setTimeout(() => {
+      document.getElementById("text").style.opacity = "0";
+    }, 3000);
+
+    setTimeout(() => {
+      document.getElementById("text").style.display = "none";
+      document.getElementById("countdown").style.display = "block";
+
+      setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          document.body.innerHTML = "";
+          document.body.style.background = "black";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("timer").innerHTML =
+          `${days}D : ${hours}H : ${minutes}M : ${seconds}S`;
+      }, 1000);
+
+    }, 5500);
+  </script>
+
 </body>
 </html>
