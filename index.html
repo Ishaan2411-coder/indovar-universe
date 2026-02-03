@@ -1,85 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Indovar Universe</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<title>INDOVAR – Phase 1</title>
 
-    #text {
-      font-size: 2.5rem;
-      opacity: 1;
-      transition: opacity 2s;
-    }
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+  }
 
-    #countdown {
-      display: none;
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-    }
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
 
-    .small {
-      font-size: 1rem;
-      opacity: 0.6;
-      margin-bottom: 10px;
-    }
-  </style>
+  /* Opening text */
+  #opening {
+    font-size: 22px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    animation: fadeIn 2s ease-in;
+  }
+
+  /* Countdown section */
+  #countdown {
+    display: none;
+  }
+
+  .coming-soon {
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+
+  .days {
+    font-size: 120px;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+</style>
 </head>
 
 <body>
 
-  <div id="text">
-    INDOVAR UNIVERSE<br><br>
-    <span class="small">Phase One Begins</span>
-  </div>
+<!-- OPENING TEXT -->
+<div id="opening" class="center">
+  In the beginning, mankind believed it was alone.<br><br>
+  But the universe had other plans.<br><br>
+  Some secrets were buried.<br>
+  Some were waiting to return.
+</div>
 
-  <div id="countdown">
-    <div class="small">COUNTDOWN TO 10 MARCH</div>
-    <div id="timer"></div>
-  </div>
+<!-- COUNTDOWN -->
+<div id="countdown" class="center">
+  <div class="coming-soon">COMING SOON</div>
+  <div class="days" id="days">00</div>
+</div>
 
-  <script>
+<script>
+  // Step 1: opening text duration
+  setTimeout(() => {
+    const opening = document.getElementById("opening");
+    opening.style.animation = "fadeOut 2s forwards";
+
+    // Step 2: show countdown
+    setTimeout(() => {
+      opening.style.display = "none";
+      document.getElementById("countdown").style.display = "block";
+      startCountdown();
+    }, 2000);
+
+  }, 5000); // opening stays for 5 seconds
+
+  function startCountdown() {
     const targetDate = new Date("March 10, 2026 00:00:00").getTime();
 
-    setTimeout(() => {
-      document.getElementById("text").style.opacity = "0";
-    }, 3000);
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
 
-    setTimeout(() => {
-      document.getElementById("text").style.display = "none";
-      document.getElementById("countdown").style.display = "block";
+      if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        return;
+      }
 
-      setInterval(() => {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
-
-        if (diff <= 0) {
-          document.body.innerHTML = "";
-          document.body.style.background = "black";
-          return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        document.getElementById("timer").innerHTML =
-          `${days}D : ${hours}H : ${minutes}M : ${seconds}S`;
-      }, 1000);
-
-    }, 5500);
-  </script>
+      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("days").innerText = days;
+    }, 1000);
+  }
+</script>
 
 </body>
 </html>
