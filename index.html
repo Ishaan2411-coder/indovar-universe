@@ -2,103 +2,237 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Indovar Universe</title>
+<title>Indovar Universe | Director</title>
 
 <style>
+    :root {
+        color-scheme: dark;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
-        background: black;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
+        min-height: 100vh;
+        background: #050505;
+        color: #f5f5f5;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    header {
+        position: relative;
+        padding: 80px 8vw 120px;
+        background: radial-gradient(circle at top, #2a2a2a, #050505 65%);
         overflow: hidden;
     }
 
-    .opening {
-        font-size: 22px;
-        letter-spacing: 2px;
-        animation: fadeOut 2s ease forwards;
-        animation-delay: 4s;
+    header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(130deg, rgba(255, 255, 255, 0.08), transparent 55%);
+        pointer-events: none;
     }
 
-    .countdown-box {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        animation: fadeIn 2s ease forwards;
-    }
-
-    .coming {
-        font-size: 18px;
-        letter-spacing: 3px;
-        opacity: 0.8;
-    }
-
-    .timer {
-        font-size: 40px;
+    .brand {
+        text-transform: uppercase;
         letter-spacing: 6px;
-        font-weight: bold;
+        font-size: 12px;
+        color: #9fa3a7;
     }
 
-    @keyframes fadeOut {
-        to {
-            opacity: 0;
-            transform: scale(0.95);
-        }
+    .hero {
+        max-width: 900px;
+        position: relative;
+        z-index: 1;
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
+    .hero h1 {
+        font-size: clamp(2.6rem, 6vw, 4.6rem);
+        margin: 18px 0 16px;
+        letter-spacing: 2px;
+    }
+
+    .hero p {
+        max-width: 640px;
+        font-size: 1.1rem;
+        color: #d6d6d6;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .button {
+        text-decoration: none;
+        color: #050505;
+        background: #f5f5f5;
+        padding: 12px 24px;
+        border-radius: 999px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .button.secondary {
+        background: transparent;
+        color: #f5f5f5;
+        border: 1px solid #f5f5f5;
+    }
+
+    main {
+        padding: 0 8vw 80px;
+        display: grid;
+        gap: 64px;
+    }
+
+    .section-title {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 14px;
+        color: #9fa3a7;
+        margin-bottom: 12px;
+    }
+
+    .card-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card {
+        padding: 24px;
+        background: #0f0f0f;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px;
+        background: #141414;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #9fa3a7;
+        padding-bottom: 40px;
+    }
+
+    @media (max-width: 640px) {
+        header {
+            padding: 60px 8vw 90px;
         }
-        to {
-            opacity: 1;
+
+        .hero-actions {
+            flex-direction: column;
+            align-items: flex-start;
         }
     }
 </style>
 </head>
 
 <body>
+<header>
+    <div class="hero">
+        <div class="brand">Indovar Universe</div>
+        <h1>I am a director building cinematic worlds.</h1>
+        <p>
+            I craft stories that connect culture, character, and spectacle. From concept
+            to final cut, I lead every phase of production with a focus on bold visuals,
+            grounded performances, and unforgettable soundscapes.
+        </p>
+        <div class="hero-actions">
+            <a class="button" href="#work">View Work</a>
+            <a class="button secondary" href="#contact">Contact</a>
+        </div>
+    </div>
+</header>
 
-<div class="opening" id="opening">
-    AN ORIGINAL CINEMATIC UNIVERSE IS ABOUT TO BEGIN
+<main>
+    <section id="about">
+        <div class="section-title">Director Profile</div>
+        <h2>Vision &amp; Storytelling</h2>
+        <p>
+            I direct narrative and commercial projects with a signature balance of scale
+            and intimacy. My collaborations blend cinematic lighting, performance-driven
+            blocking, and editorial pacing designed to keep audiences fully immersed.
+        </p>
+    </section>
+
+    <section id="work">
+        <div class="section-title">Featured Work</div>
+        <div class="card-grid">
+            <article class="card">
+                <h3>Indovar: Genesis</h3>
+                <p>A flagship feature introducing the universe, anchored by mythic heroes and a
+                    sweeping, modern score.</p>
+            </article>
+            <article class="card">
+                <h3>Echoes of Orbit</h3>
+                <p>A sci-fi thriller short film exploring memory, gravity, and the price of return.</p>
+            </article>
+            <article class="card">
+                <h3>Neon Ritual</h3>
+                <p>A commercial spot with kinetic choreography and high-contrast neon palettes.</p>
+            </article>
+            <article class="card">
+                <h3>Behind the Frames</h3>
+                <p>Documentary vignettes showcasing set design, costume craft, and score sessions.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-title">Services</div>
+        <div class="card-grid">
+            <article class="card">
+                <h3>Creative Direction</h3>
+                <p>Concept development, mood boards, visual references, and story structure.</p>
+            </article>
+            <article class="card">
+                <h3>Production Leadership</h3>
+                <p>On-set direction, talent collaboration, and cinematic shot design.</p>
+            </article>
+            <article class="card">
+                <h3>Post-Production</h3>
+                <p>Editorial guidance, sound design supervision, and final color grading.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">Contact</div>
+        <div class="contact">
+            <div>
+                <h3>Let’s collaborate.</h3>
+                <p>Bookings, pitches, and press inquiries are welcome.</p>
+            </div>
+            <a class="button" href="mailto:director@indovaruniverse.com">director@indovaruniverse.com</a>
+        </div>
+    </section>
+</main>
+
+<div class="footer">
+    © 2024 Indovar Universe — Director Portfolio
 </div>
-
-<div class="countdown-box" id="countdownBox">
-    <div class="coming">COMING SOON</div>
-    <div class="timer" id="timer">00 : 00 : 00 : 00</div>
-</div>
-
-<script>
-    setTimeout(() => {
-        document.getElementById("opening").style.display = "none";
-        document.getElementById("countdownBox").style.display = "flex";
-    }, 6000);
-
-    const targetDate = new Date("March 10, 2026 00:00:00").getTime();
-
-    setInterval(() => {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
-
-        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        let minutes = Math.floor((diff / (1000 * 60)) % 60);
-        let seconds = Math.floor((diff / 1000) % 60);
-
-        document.getElementById("timer").innerHTML =
-            String(days).padStart(2, '0') + " : " +
-            String(hours).padStart(2, '0') + " : " +
-            String(minutes).padStart(2, '0') + " : " +
-            String(seconds).padStart(2, '0');
-    }, 1000);
-</script>
 
 </body>
 </html>
-
