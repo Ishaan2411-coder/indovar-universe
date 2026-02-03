@@ -7,7 +7,7 @@
 <style>
     body {
         margin: 0;
-        background: radial-gradient(circle at top, #111 0%, #000 60%);
+        background: radial-gradient(circle at top, #111 0%, #000 65%);
         color: #eaeaea;
         font-family: "Segoe UI", Arial, sans-serif;
         letter-spacing: 1px;
@@ -16,15 +16,15 @@
     nav {
         display: flex;
         justify-content: center;
-        gap: 50px;
-        padding: 20px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        gap: 60px;
+        padding: 22px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     nav span {
         cursor: pointer;
         font-size: 14px;
-        opacity: 0.7;
+        opacity: 0.65;
         transition: 0.3s;
     }
 
@@ -46,6 +46,7 @@
         flex-direction: column;
     }
 
+    /* HOME */
     .coming {
         font-size: 14px;
         letter-spacing: 4px;
@@ -66,15 +67,17 @@
         letter-spacing: 3px;
     }
 
+    /* CONTACT */
     .contact p {
-        font-size: 14px;
+        font-size: 15px;
         opacity: 0.8;
-        margin: 10px 0;
+        margin: 12px 0;
     }
 
+    /* ABOUT */
     .about-box {
         display: flex;
-        gap: 60px;
+        gap: 70px;
         max-width: 900px;
         align-items: center;
     }
@@ -84,12 +87,46 @@
         font-size: 14px;
         opacity: 0.75;
         line-height: 1.7;
+        text-align: left;
     }
 
-    .about-side {
+    .mystery-figure {
         width: 50%;
-        height: 200px;
-        border: 1px solid rgba(255,255,255,0.1);
+        height: 260px;
+        position: relative;
+        background: linear-gradient(to bottom, #000, #111);
+        border: 1px solid rgba(255,255,255,0.08);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hoodie {
+        width: 120px;
+        height: 160px;
+        background: #000;
+        border-radius: 60px 60px 20px 20px;
+        position: relative;
+    }
+
+    .mask {
+        position: absolute;
+        top: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 55px;
+        border: 1px solid gold;
+        box-shadow: 0 0 12px rgba(255,215,0,0.6);
+        opacity: 0.8;
+    }
+
+    .secret {
+        position: absolute;
+        bottom: 18px;
+        font-size: 12px;
+        letter-spacing: 4px;
+        opacity: 0.6;
     }
 </style>
 </head>
@@ -122,13 +159,18 @@
 <div id="about" class="section">
     <div class="about-box">
         <div class="about-text">
-            I am an independent filmmaker focused on building a grounded,
-            story-driven cinematic universe that blends science fiction,
-            emotion, and mythology. Indovar Universe is a long-term vision
-            designed to unfold in phases, where each story connects to a
-            larger unseen truth.
+            I am an independent filmmaker building a long-form cinematic universe
+            rooted in science fiction, mystery, and mythology. Indovar Universe
+            is designed to unfold slowly, where silence, questions, and unseen
+            forces are as important as spectacle.
         </div>
-        <div class="about-side"></div>
+
+        <div class="mystery-figure">
+            <div class="hoodie">
+                <div class="mask"></div>
+            </div>
+            <div class="secret">SECRET</div>
+        </div>
     </div>
 </div>
 
