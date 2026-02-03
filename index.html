@@ -3,365 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <title>Indovar Universe</title>
-<title>Indovar Universe | Luxury Announcement</title>
 
 <style>
-    :root {
-        color-scheme: dark;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
     body {
         margin: 0;
-        background: black;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        min-height: 100vh;
-        background: #050505;
-        color: #f5f5f5;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-    }
-
-    header {
-        position: relative;
-        padding: 32px 8vw 40px;
-        background: radial-gradient(circle at top, #1f1a12, #050505 65%);
-        overflow: hidden;
-    }
-
-    header::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(130deg, rgba(255, 255, 255, 0.08), transparent 55%);
-        pointer-events: none;
-    }
-
-    .brand {
-        text-transform: uppercase;
-        letter-spacing: 6px;
-        font-size: 12px;
-        color: #c9b37a;
-    }
-
-    .hero {
-        max-width: 900px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .hero h1 {
-        font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-        margin: 18px 0 12px;
-        letter-spacing: 3px;
-    }
-
-    .hero p {
-        max-width: 640px;
-        font-size: 1.1rem;
-        color: #d4cfc3;
-    }
-
-    .highlight {
-        color: #f3e4c3;
-        font-weight: 600;
-    }
-
-    .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        margin-top: 32px;
-    }
-
-    .button {
-        text-decoration: none;
-        color: #050505;
-        background: linear-gradient(135deg, #f3e4c3, #c9b37a);
-        padding: 12px 24px;
-        border-radius: 999px;
-        font-weight: 600;
+        background: radial-gradient(circle at top, #111 0%, #000 60%);
+        color: #eaeaea;
+        font-family: "Segoe UI", Arial, sans-serif;
         letter-spacing: 1px;
-        box-shadow: 0 12px 30px rgba(201, 179, 122, 0.2);
     }
 
-    .button.secondary {
-        background: transparent;
-        color: #f3e4c3;
-        border: 1px solid rgba(243, 228, 195, 0.7);
-    }
-
-    .button.secondary:hover {
-        background: rgba(243, 228, 195, 0.1);
-    }
-
-    main {
-        padding: 0 8vw 80px;
-        display: grid;
-        gap: 64px;
-    }
-
-    .section-title {
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-size: 14px;
-        color: #c9b37a;
-        margin-bottom: 12px;
-    }
-
-    .card-grid {
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .card {
-        padding: 24px;
-        background: rgba(15, 13, 10, 0.85);
-        border-radius: 16px;
-        border: 1px solid rgba(201, 179, 122, 0.2);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    .card h3 {
-        margin-top: 0;
-        margin-bottom: 8px;
-    }
-
-    .contact {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 18px;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-        overflow: hidden;
-        justify-content: space-between;
-        padding: 28px;
-        background: rgba(20, 17, 12, 0.9);
-        border-radius: 18px;
-        border: 1px solid rgba(201, 179, 122, 0.25);
-    }
-
-    .opening {
-        font-size: 22px;
-        letter-spacing: 2px;
-        animation: fadeOut 2s ease forwards;
-        animation-delay: 4s;
-    .footer {
-        text-align: center;
-        font-size: 0.9rem;
-        color: #b7aa90;
-        padding-bottom: 40px;
-    }
-
-    .countdown-box {
-        display: none;
-        flex-direction: column;
     nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 50px;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav span {
+        cursor: pointer;
+        font-size: 14px;
+        opacity: 0.7;
+        transition: 0.3s;
+    }
+
+    nav span:hover {
+        opacity: 1;
+    }
+
+    .section {
+        display: none;
+        height: calc(100vh - 80px);
+        justify-content: center;
         align-items: center;
-        gap: 15px;
-        animation: fadeIn 2s ease forwards;
-        gap: 24px;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .active {
+        display: flex;
+        flex-direction: column;
     }
 
     .coming {
-        font-size: 18px;
-        letter-spacing: 3px;
-        opacity: 0.8;
-    .nav-links {
-        display: flex;
-        gap: 18px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        font-size: 14px;
+        letter-spacing: 4px;
+        opacity: 0.6;
+        margin-bottom: 15px;
     }
 
     .timer {
-        font-size: 40px;
-        letter-spacing: 6px;
-        font-weight: bold;
-    .nav-links a {
-        color: #f3e4c3;
-        text-decoration: none;
-        font-weight: 600;
-        letter-spacing: 1px;
+        font-size: 42px;
+        letter-spacing: 8px;
+        font-weight: 500;
     }
 
-    @keyframes fadeOut {
-        to {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-    .hero-panel {
-        margin-top: 48px;
-        display: grid;
-        gap: 28px;
+    .phase {
+        margin-top: 20px;
+        font-size: 13px;
+        opacity: 0.5;
+        letter-spacing: 3px;
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-    .countdown {
+    .contact p {
+        font-size: 14px;
+        opacity: 0.8;
+        margin: 10px 0;
+    }
+
+    .about-box {
         display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        font-size: clamp(1.8rem, 5vw, 3.2rem);
-        letter-spacing: 4px;
-        font-weight: 600;
-        color: #f3e4c3;
-    }
-
-    .countdown span {
-        min-width: 90px;
-        text-align: center;
-        padding: 12px 18px;
-        border-radius: 14px;
-        background: rgba(20, 17, 12, 0.75);
-        border: 1px solid rgba(201, 179, 122, 0.35);
-    }
-
-    .split {
-        display: grid;
-        gap: 30px;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 60px;
+        max-width: 900px;
         align-items: center;
     }
 
-    @media (max-width: 640px) {
-        header {
-            padding: 40px 8vw 70px;
-        }
-        to {
-            opacity: 1;
+    .about-text {
+        width: 50%;
+        font-size: 14px;
+        opacity: 0.75;
+        line-height: 1.7;
+    }
 
-        .hero-actions {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        nav {
-            flex-direction: column;
-            align-items: flex-start;
-        }
+    .about-side {
+        width: 50%;
+        height: 200px;
+        border: 1px solid rgba(255,255,255,0.1);
     }
 </style>
 </head>
 
 <body>
-<header>
-    <nav>
-        <div class="brand">Indovar Universe</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-        </ul>
-    </nav>
-    <div class="hero hero-panel" id="home">
-        <div>
-            <div class="section-title">Coming On</div>
-            <h1>Phase 1 <span class="highlight">Announcement</span></h1>
-            <p>Luxury cinematic reveal is on the way. Countdown shuru hai.</p>
-        </div>
-        <div class="countdown" id="countdown">
-            <span id="days">00</span>
-            <span id="hours">00</span>
-            <span id="minutes">00</span>
-            <span id="seconds">00</span>
-        </div>
-    </div>
-</header>
 
-<div class="opening" id="opening">
-    AN ORIGINAL CINEMATIC UNIVERSE IS ABOUT TO BEGIN
-</div>
-<main>
-    <section id="contact">
-        <div class="section-title">Contact</div>
-        <div class="contact">
-            <div>
-                <h3>Contact Us</h3>
-                <p>Luxury projects aur announcements ke liye connect karein.</p>
-            </div>
-            <div>
-                <a class="button" href="mailto:singhscreations2026@gmail.com">Singhscreations2026@gmail.com</a>
-                <a class="button secondary" href="https://www.instagram.com/Singhs_creations01" target="_blank" rel="noreferrer">Instagram: Singhs_creations01</a>
-            </div>
-        </div>
-    </section>
+<nav>
+    <span onclick="showTab('home')">HOME</span>
+    <span onclick="showTab('contact')">CONTACT</span>
+    <span onclick="showTab('about')">ABOUT</span>
+</nav>
 
-    <section id="about">
-        <div class="section-title">About Me</div>
-        <div class="split">
-            <div>
-                <h2>Thoda sa mere baare mein</h2>
-                <p>
-                    Main luxury-style visuals aur cinematic presentations par focus karta/karti hoon.
-                    Mera aim hai ki har announcement classy, premium aur memorable लगे.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Creative Notes</h3>
-                <p>
-                    Minimal palette, gold accents, aur elegant typography se ek premium feel create
-                    hota hai — yehi Indovar Universe ka signature touch hai.
-                </p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<div class="countdown-box" id="countdownBox">
-    <div class="coming">COMING SOON</div>
+<!-- HOME -->
+<div id="home" class="section active">
+    <div class="coming">COMING ON</div>
     <div class="timer" id="timer">00 : 00 : 00 : 00</div>
-<div class="footer">
-    © 2024 Indovar Universe — Luxury Announcement
+    <div class="phase">PHASE 1 ANNOUNCEMENT</div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section contact">
+    <p>Email</p>
+    <p>singhscreations2026@gmail.com</p>
+    <br>
+    <p>Instagram</p>
+    <p>Singhs_creations01</p>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+    <div class="about-box">
+        <div class="about-text">
+            I am an independent filmmaker focused on building a grounded,
+            story-driven cinematic universe that blends science fiction,
+            emotion, and mythology. Indovar Universe is a long-term vision
+            designed to unfold in phases, where each story connects to a
+            larger unseen truth.
+        </div>
+        <div class="about-side"></div>
+    </div>
 </div>
 
 <script>
-    setTimeout(() => {
-        document.getElementById("opening").style.display = "none";
-        document.getElementById("countdownBox").style.display = "flex";
-    }, 6000);
+    function showTab(id) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
 
     const targetDate = new Date("March 10, 2026 00:00:00").getTime();
 
     setInterval(() => {
-    const updateCountdown = () => {
         const now = new Date().getTime();
         const diff = targetDate - now;
 
-        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        let minutes = Math.floor((diff / (1000 * 60)) % 60);
-        let seconds = Math.floor((diff / 1000) % 60);
+        let d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        let m = Math.floor((diff / (1000 * 60)) % 60);
+        let s = Math.floor((diff / 1000) % 60);
 
         document.getElementById("timer").innerHTML =
-            String(days).padStart(2, '0') + " : " +
-            String(hours).padStart(2, '0') + " : " +
-            String(minutes).padStart(2, '0') + " : " +
-            String(seconds).padStart(2, '0');
+            String(d).padStart(2, '0') + " : " +
+            String(h).padStart(2, '0') + " : " +
+            String(m).padStart(2, '0') + " : " +
+            String(s).padStart(2, '0');
     }, 1000);
-        const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
-        const hours = Math.max(0, Math.floor((diff / (1000 * 60 * 60)) % 24));
-        const minutes = Math.max(0, Math.floor((diff / (1000 * 60)) % 60));
-        const seconds = Math.max(0, Math.floor((diff / 1000) % 60));
-
-        document.getElementById("days").textContent = String(days).padStart(2, "0");
-        document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-        document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-        document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-    };
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
 </script>
 
 </body>
