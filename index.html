@@ -2,112 +2,103 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>INDOVAR – Phase 1</title>
+<title>Indovar Universe</title>
 
 <style>
-  body {
-    margin: 0;
-    background: black;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-  }
+    body {
+        margin: 0;
+        background: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+    }
 
-  .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 90%;
-  }
+    .opening {
+        font-size: 22px;
+        letter-spacing: 2px;
+        animation: fadeOut 2s ease forwards;
+        animation-delay: 4s;
+    }
 
-  /* Opening text */
-  #opening {
-    font-size: 22px;
-    line-height: 1.6;
-    letter-spacing: 1px;
-    animation: fadeIn 2s ease-in;
-  }
+    .countdown-box {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        animation: fadeIn 2s ease forwards;
+    }
 
-  /* Countdown section */
-  #countdown {
-    display: none;
-  }
+    .coming {
+        font-size: 18px;
+        letter-spacing: 3px;
+        opacity: 0.8;
+    }
 
-  .coming-soon {
-    font-size: 20px;
-    letter-spacing: 4px;
-    margin-bottom: 20px;
-    opacity: 0.8;
-  }
+    .timer {
+        font-size: 40px;
+        letter-spacing: 6px;
+        font-weight: bold;
+    }
 
-  .days {
-    font-size: 120px;
-    font-weight: bold;
-    letter-spacing: 5px;
-  }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<!-- OPENING TEXT -->
-<div id="opening" class="center">
-  In the beginning, mankind believed it was alone.<br><br>
-  But the universe had other plans.<br><br>
-  Some secrets were buried.<br>
-  Some were waiting to return.
+<div class="opening" id="opening">
+    AN ORIGINAL CINEMATIC UNIVERSE IS ABOUT TO BEGIN
 </div>
 
-<!-- COUNTDOWN -->
-<div id="countdown" class="center">
-  <div class="coming-soon">COMING SOON</div>
-  <div class="days" id="days">00</div>
+<div class="countdown-box" id="countdownBox">
+    <div class="coming">COMING SOON</div>
+    <div class="timer" id="timer">00 : 00 : 00 : 00</div>
 </div>
 
 <script>
-  // Step 1: opening text duration
-  setTimeout(() => {
-    const opening = document.getElementById("opening");
-    opening.style.animation = "fadeOut 2s forwards";
-
-    // Step 2: show countdown
     setTimeout(() => {
-      opening.style.display = "none";
-      document.getElementById("countdown").style.display = "block";
-      startCountdown();
-    }, 2000);
+        document.getElementById("opening").style.display = "none";
+        document.getElementById("countdownBox").style.display = "flex";
+    }, 6000);
 
-  }, 5000); // opening stays for 5 seconds
-
-  function startCountdown() {
     const targetDate = new Date("March 10, 2026 00:00:00").getTime();
 
     setInterval(() => {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
+        const now = new Date().getTime();
+        const diff = targetDate - now;
 
-      if (diff <= 0) {
-        document.getElementById("days").innerText = "00";
-        return;
-      }
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        let minutes = Math.floor((diff / (1000 * 60)) % 60);
+        let seconds = Math.floor((diff / 1000) % 60);
 
-      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("days").innerText = days;
+        document.getElementById("timer").innerHTML =
+            String(days).padStart(2, '0') + " : " +
+            String(hours).padStart(2, '0') + " : " +
+            String(minutes).padStart(2, '0') + " : " +
+            String(seconds).padStart(2, '0');
     }, 1000);
-  }
 </script>
 
 </body>
 </html>
+
