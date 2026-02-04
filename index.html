@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Space Project</title>
+  <title>Project</title>
 
   <style>
     * {
@@ -14,53 +14,38 @@
     }
 
     body {
-      background: black;
-      color: white;
-      overflow-x: hidden;
+      background: #f5f5f5;
+      color: #222;
     }
 
-    /* ===== STAR CANVAS ===== */
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    /* ===== NAVBAR ===== */
     nav {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       padding: 15px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background: #111;
+      flex-wrap: wrap;
     }
 
     nav button {
       background: transparent;
-      border: 1px solid #4fc3ff;
-      color: #4fc3ff;
+      border: 1px solid #fff;
+      color: #fff;
       padding: 8px 16px;
       cursor: pointer;
       border-radius: 20px;
-      transition: 0.3s;
     }
 
     nav button:hover {
-      background: #4fc3ff;
-      color: black;
+      background: #fff;
+      color: #111;
     }
 
-    /* ===== SECTIONS ===== */
     section {
       display: none;
-      padding: 60px 20px;
+      padding: 50px 20px;
       text-align: center;
-      min-height: 100vh;
+      min-height: 80vh;
     }
 
     section.active {
@@ -68,46 +53,29 @@
     }
 
     h1 {
-      font-size: 2.2rem;
       margin-bottom: 15px;
     }
 
     p {
       max-width: 600px;
       margin: auto;
-      opacity: 0.85;
       line-height: 1.6;
     }
 
-    /* ===== BUTTON LINKS ===== */
     .link-btn {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 22px;
-      background: #4fc3ff;
-      color: black;
+      background: #111;
+      color: white;
       text-decoration: none;
       border-radius: 25px;
-      font-weight: bold;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.7rem;
-      }
-      nav {
-        flex-wrap: wrap;
-      }
     }
   </style>
 </head>
 
 <body>
 
-<canvas id="stars"></canvas>
-
-<!-- ===== NAV ===== -->
 <nav>
   <button onclick="showTab('home')">Home</button>
   <button onclick="showTab('work')">Our Work</button>
@@ -115,52 +83,46 @@
   <button onclick="showTab('contact')">Contact</button>
 </nav>
 
-<!-- ===== HOME ===== -->
 <section id="home" class="active">
-  <h1>Welcome to the Void</h1>
+  <h1>Welcome</h1>
   <p>
-    In a silent universe full of stars, ideas are born.  
-    This space is for curiosity, creation, and connection.  
-    Look around — the cosmos is listening.
+    This is our official page.  
+    Explore our work, ask questions, and connect with us.
   </p>
 </section>
 
-<!-- ===== OUR WORK ===== -->
 <section id="work">
   <h1>Our Work</h1>
-  <p>Explore our creations on YouTube.</p>
+  <p>Check out our content on YouTube.</p>
   <a class="link-btn" href="https://youtube.com" target="_blank">
     Visit YouTube
   </a>
 </section>
 
-<!-- ===== ASK QUESTION ===== -->
 <section id="ask">
   <h1>Ask a Question</h1>
   <p>
-    Have a doubt or curiosity?  
-    Ask freely — your identity stays safe.
+    Ask anything freely.  
+    Questions are collected safely via Google Forms.
   </p>
   <a class="link-btn" href="https://forms.gle/" target="_blank">
     Ask via Google Form
   </a>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact">
-  <h1>Contact Us</h1>
-  <p>Reach out through any portal below.</p>
+  <h1>Contact</h1>
+  <p>Reach us here:</p>
 
   <a class="link-btn" href="https://instagram.com" target="_blank">
     Instagram
   </a>
-  <br/><br/>
+  <br><br>
   <a class="link-btn" href="mailto:example@gmail.com">
-    Email Us
+    Email
   </a>
 </section>
 
-<!-- ===== SCRIPT ===== -->
 <script>
   function showTab(id) {
     document.querySelectorAll("section").forEach(sec => {
@@ -168,46 +130,6 @@
     });
     document.getElementById(id).classList.add("active");
   }
-
-  /* ===== STAR ANIMATION ===== */
-  const canvas = document.getElementById("stars");
-  const ctx = canvas.getContext("2d");
-
-  let w = canvas.width = window.innerWidth;
-  let h = canvas.height = window.innerHeight;
-
-  let stars = Array.from({length: 150}, () => ({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 1.5,
-    s: Math.random() * 0.5 + 0.2
-  }));
-
-  function animate() {
-    ctx.clearRect(0,0,w,h);
-    ctx.fillStyle = "white";
-
-    stars.forEach(star => {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-      ctx.fill();
-
-      star.y += star.s;
-      if (star.y > h) {
-        star.y = 0;
-        star.x = Math.random() * w;
-      }
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-
-  window.addEventListener("resize", () => {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  });
 </script>
 
 </body>
