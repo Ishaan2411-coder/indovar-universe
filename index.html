@@ -2,165 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Indovar Universe</title>
 
 <style>
-    body {
-        margin: 0;
-        background: radial-gradient(circle at top, #111 0%, #000 65%);
-        color: #eaeaea;
-        font-family: "Segoe UI", Arial, sans-serif;
-        letter-spacing: 1px;
-    }
+body{
+    margin:0;
+    background:radial-gradient(circle at top,#111 0%,#000 65%);
+    color:#eaeaea;
+    font-family:Segoe UI,Arial,sans-serif;
+    letter-spacing:1px;
+}
 
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 60px;
-        padding: 22px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        flex-wrap: wrap;
-    }
+nav{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:18px 10px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    flex-wrap:wrap;
+}
 
-    nav span {
-        cursor: pointer;
-        font-size: 14px;
-        opacity: 0.65;
-        transition: 0.3s;
-    }
+nav span{
+    cursor:pointer;
+    font-size:13px;
+    opacity:.65;
+    transition:.3s;
+}
+nav span:hover{opacity:1;}
 
-    nav span:hover {
-        opacity: 1;
-    }
+.section{
+    display:none;
+    min-height:calc(100vh - 80px);
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 15px;
+}
+.active{
+    display:flex;
+    flex-direction:column;
+}
 
-    .section {
-        display: none;
-        min-height: calc(100vh - 80px);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 40px 20px;
-    }
+/* HOME */
+.coming{
+    font-size:13px;
+    letter-spacing:4px;
+    opacity:.6;
+    margin-bottom:12px;
+}
+.timer{
+    font-size:clamp(26px,7vw,42px);
+    letter-spacing:6px;
+}
+.phase{
+    margin-top:18px;
+    font-size:12px;
+    opacity:.5;
+    letter-spacing:3px;
+}
 
-    .active {
-        display: flex;
-        flex-direction: column;
-    }
+/* CONTACT */
+.contact a{
+    display:block;
+    color:#eaeaea;
+    text-decoration:none;
+    margin:12px 0;
+    opacity:.8;
+}
+.contact a:hover{opacity:1;}
 
-    /* HOME */
-    .coming {
-        font-size: 14px;
-        letter-spacing: 4px;
-        opacity: 0.6;
-        margin-bottom: 15px;
-    }
+/* ABOUT */
+.about-box{
+    display:flex;
+    gap:40px;
+    max-width:900px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.about-text{
+    flex:1;
+    font-size:14px;
+    opacity:.75;
+    line-height:1.7;
+    text-align:left;
+}
+.mystery-figure{
+    flex:1;
+    min-width:220px;
+    height:260px;
+    position:relative;
+    background:linear-gradient(to bottom,#000,#111);
+    border:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.hoodie{
+    width:120px;
+    height:160px;
+    background:#000;
+    border-radius:60px 60px 20px 20px;
+    position:relative;
+}
+.mask{
+    position:absolute;
+    top:45px;
+    left:50%;
+    transform:translateX(-50%);
+    width:40px;
+    height:55px;
+    border:1px solid gold;
+    box-shadow:0 0 12px rgba(255,215,0,.6);
+    opacity:.8;
+}
+.secret{
+    position:absolute;
+    bottom:18px;
+    font-size:12px;
+    letter-spacing:4px;
+    opacity:.6;
+}
 
-    .timer {
-        font-size: 42px;
-        letter-spacing: 8px;
-        font-weight: 500;
-    }
-
-    .phase {
-        margin-top: 20px;
-        font-size: 13px;
-        opacity: 0.5;
-        letter-spacing: 3px;
-    }
-
-    /* CONTACT */
-    .contact p {
-        font-size: 15px;
-        opacity: 0.8;
-        margin: 12px 0;
-    }
-
-    .contact a {
-        color: #eaeaea;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255,255,255,0.3);
-    }
-
-    /* ABOUT */
-    .about-box {
-        display: flex;
-        gap: 70px;
-        max-width: 900px;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .about-text {
-        width: 100%;
-        max-width: 420px;
-        font-size: 14px;
-        opacity: 0.75;
-        line-height: 1.7;
-        text-align: left;
-    }
-
-    .mystery-figure {
-        width: 100%;
-        max-width: 420px;
-        height: 260px;
-        position: relative;
-        background: linear-gradient(to bottom, #000, #111);
-        border: 1px solid rgba(255,255,255,0.08);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hoodie {
-        width: 120px;
-        height: 160px;
-        background: #000;
-        border-radius: 60px 60px 20px 20px;
-        position: relative;
-    }
-
-    .mask {
-        position: absolute;
-        top: 45px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40px;
-        height: 55px;
-        border: 1px solid gold;
-        box-shadow: 0 0 12px rgba(255,215,0,0.6);
-        opacity: 0.8;
-    }
-
-    .secret {
-        position: absolute;
-        bottom: 18px;
-        font-size: 12px;
-        letter-spacing: 4px;
-        opacity: 0.6;
-    }
-
-    /* ASK QUESTION */
-    .ask-text {
-        font-size: 14px;
-        opacity: 0.7;
-        margin-bottom: 25px;
-        letter-spacing: 2px;
-    }
-
-    .ask-btn {
-        padding: 14px 32px;
-        border: 1px solid rgba(255,255,255,0.4);
-        background: transparent;
-        color: #fff;
-        text-decoration: none;
-        letter-spacing: 3px;
-        font-size: 13px;
-        transition: 0.3s;
-    }
-
-    .ask-btn:hover {
-        background: rgba(255,255,255,0.08);
-    }
+/* OUR WORK */
+.work a{
+    color:#eaeaea;
+    text-decoration:none;
+    font-size:15px;
+    opacity:.8;
+}
+.work a:hover{opacity:1;}
 </style>
 </head>
 
@@ -168,9 +139,9 @@
 
 <nav>
     <span onclick="showTab('home')">HOME</span>
+    <span onclick="showTab('work')">OUR WORK</span>
     <span onclick="showTab('contact')">CONTACT</span>
     <span onclick="showTab('about')">ABOUT</span>
-    <span onclick="showTab('ask')">ASK</span>
 </nav>
 
 <!-- HOME -->
@@ -180,23 +151,21 @@
     <div class="phase">PHASE 1 ANNOUNCEMENT</div>
 </div>
 
+<!-- OUR WORK -->
+<div id="work" class="section work">
+    <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
+        Visit Our YouTube Channel →
+    </a>
+</div>
+
 <!-- CONTACT -->
 <div id="contact" class="section contact">
-    <p>Email</p>
-    <p>
-        <a href="mailto:singhscreations2026@gmail.com">
-            singhscreations2026@gmail.com
-        </a>
-    </p>
-
-    <br>
-
-    <p>Instagram</p>
-    <p>
-        <a href="https://instagram.com/Singhs_creations01" target="_blank">
-            Singhs_creations01
-        </a>
-    </p>
+    <a href="mailto:singhscreations2026@gmail.com">
+        singhscreations2026@gmail.com
+    </a>
+    <a href="https://instagram.com/Singhs_creations01" target="_blank">
+        @Singhs_creations01
+    </a>
 </div>
 
 <!-- ABOUT -->
@@ -205,8 +174,8 @@
         <div class="about-text">
             I am an independent filmmaker building a long-form cinematic universe
             rooted in science fiction, mystery, and mythology. Indovar Universe
-            is designed to unfold slowly, where silence, questions, and unseen
-            forces are as important as spectacle.
+            unfolds slowly — where silence, questions, and unseen forces matter
+            more than noise.
         </div>
 
         <div class="mystery-figure">
@@ -218,45 +187,30 @@
     </div>
 </div>
 
-<!-- ASK QUESTION -->
-<div id="ask" class="section">
-    <div class="ask-text">
-        ASK YOUR QUESTION<br>
-        NO LOGIN REQUIRED
-    </div>
-
-    <a class="ask-btn"
-       href="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform"
-       target="_blank">
-       OPEN FORM
-    </a>
-</div>
-
 <script>
-    function showTab(id) {
-        document.querySelectorAll('.section')
-        .forEach(sec => sec.classList.remove('active'));
+function showTab(id){
+    document.querySelectorAll('.section')
+    .forEach(sec=>sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
 
-        document.getElementById(id).classList.add('active');
-    }
+const targetDate=new Date("March 10, 2026 00:00:00").getTime();
 
-    const targetDate = new Date("March 10, 2026 00:00:00").getTime();
+setInterval(()=>{
+    const now=new Date().getTime();
+    const diff=targetDate-now;
 
-    setInterval(() => {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
+    let d=Math.floor(diff/(1000*60*60*24));
+    let h=Math.floor((diff/(1000*60*60))%24);
+    let m=Math.floor((diff/(1000*60))%60);
+    let s=Math.floor((diff/1000)%60);
 
-        let d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        let h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        let m = Math.floor((diff / (1000 * 60)) % 60);
-        let s = Math.floor((diff / 1000) % 60);
-
-        document.getElementById("timer").innerHTML =
-            String(d).padStart(2, '0') + " : " +
-            String(h).padStart(2, '0') + " : " +
-            String(m).padStart(2, '0') + " : " +
-            String(s).padStart(2, '0');
-    }, 1000);
+    document.getElementById("timer").innerHTML=
+    String(d).padStart(2,'0')+" : "+
+    String(h).padStart(2,'0')+" : "+
+    String(m).padStart(2,'0')+" : "+
+    String(s).padStart(2,'0');
+},1000);
 </script>
 
 </body>
