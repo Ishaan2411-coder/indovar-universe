@@ -6,56 +6,47 @@
 <title>Coming Soon</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: Arial, sans-serif;
-}
-
 body{
+  margin:0;
   background:#000;
   color:#fff;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.wrapper{
-  width:100%;
-  max-width:900px;
-  padding:20px;
+  font-family:Arial, sans-serif;
   text-align:center;
 }
 
-.coming{
-  font-size:clamp(24px, 5vw, 36px);
-  letter-spacing:2px;
+.container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+h1{
+  letter-spacing:3px;
+  font-size:32px;
   margin-bottom:10px;
 }
 
 #countdown{
-  font-size:clamp(16px, 3.5vw, 22px);
-  color:#00bfff;
-  margin-bottom:25px;
+  font-size:20px;
+  margin-bottom:30px;
 }
 
 .tabs{
   display:flex;
+  gap:10px;
   flex-wrap:wrap;
   justify-content:center;
-  gap:10px;
-  margin-bottom:20px;
 }
 
 .tabs button{
-  padding:10px 18px;
-  border:none;
-  border-radius:25px;
   background:#111;
+  border:none;
   color:#fff;
-  font-size:14px;
+  padding:10px 18px;
+  border-radius:20px;
   cursor:pointer;
 }
 
@@ -64,66 +55,63 @@ body{
   color:#000;
 }
 
-.content{
+.section{
   display:none;
-  font-size:clamp(14px, 3vw, 16px);
-  line-height:1.5;
+  margin-top:25px;
+  font-size:15px;
 }
 
-.content a{
+a{
   color:#00bfff;
   text-decoration:none;
-  word-break:break-word;
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="container">
 
-  <div class="coming">COMING SOON</div>
+  <h1>COMING SOON</h1>
   <div id="countdown"></div>
 
   <div class="tabs">
-    <button class="active" onclick="openTab('work',this)">Our Work</button>
-    <button onclick="openTab('contact',this)">Contact Us</button>
-    <button onclick="openTab('about',this)">About</button>
+    <button class="active" onclick="openTab('home',this)">Home</button>
+    <button onclick="openTab('work',this)">Our Work</button>
+    <button onclick="openTab('contact',this)">Contact</button>
   </div>
 
-  <div id="work" class="content" style="display:block;">
+  <div id="home" class="section" style="display:block;">
+    <!-- Empty on purpose (same as starting) -->
+  </div>
+
+  <div id="work" class="section">
     <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
       Visit Our YouTube Channel
     </a>
   </div>
 
-  <div id="contact" class="content">
-    Email: contact@comingsoon.com<br>
-    Instagram: @yourpage
-  </div>
-
-  <div id="about" class="content">
-    This channel focuses on creativity, ideas and original content.<br>
-    Something exciting is on the way.
+  <div id="contact" class="section">
+    Email: Singhscreations2026@gmail.com<br>
+    Instagram: Singhs_creations01
   </div>
 
 </div>
 
 <script>
-function openTab(tabName, btn){
-  document.querySelectorAll('.content').forEach(c => c.style.display="none");
-  document.querySelectorAll('.tabs button').forEach(b => b.classList.remove("active"));
-
-  document.getElementById(tabName).style.display="block";
+function openTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.style.display="none");
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove("active"));
+  document.getElementById(id).style.display="block";
   btn.classList.add("active");
 }
 
 // Countdown
-let targetDate = new Date("March 10, 2026 00:00:00").getTime();
+let target = new Date("March 10, 2026 00:00:00").getTime();
 
 setInterval(()=>{
   let now = new Date().getTime();
-  let diff = targetDate - now;
+  let diff = target - now;
 
   let d = Math.floor(diff/(1000*60*60*24));
   let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
