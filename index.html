@@ -6,167 +6,156 @@
 <title>Indovar Universe</title>
 
 <style>
-*{
-    box-sizing:border-box;
+*{ box-sizing:border-box; }
+
+body{
+    margin:0;
+    background:radial-gradient(circle at top,#111 0%,#000 70%);
+    color:#eaeaea;
+    font-family:"Segoe UI",Arial,sans-serif;
+    letter-spacing:1px;
 }
 
-body {
-    margin: 0;
-    background: radial-gradient(circle at top, #111 0%, #000 70%);
-    color: #eaeaea;
-    font-family: "Segoe UI", Arial, sans-serif;
-    letter-spacing: 1px;
+/* NAV */
+nav{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    padding:20px 10px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    flex-wrap:wrap;
 }
 
-/* NAVBAR */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 20px 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    flex-wrap: wrap;
+nav span{
+    cursor:pointer;
+    font-size:13px;
+    opacity:0.6;
+    transition:0.3s;
 }
-
-nav span {
-    cursor: pointer;
-    font-size: 13px;
-    opacity: 0.6;
-    transition: 0.3s;
-}
-
-nav span:hover {
-    opacity: 1;
-}
+nav span:hover{ opacity:1; }
 
 /* SECTIONS */
-.section {
-    display: none;
-    min-height: calc(100vh - 80px);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
+.section{
+    display:none;
+    min-height:calc(100vh - 80px);
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
 }
-
-.active {
-    display: flex;
-    flex-direction: column;
+.active{
+    display:flex;
+    flex-direction:column;
 }
 
 /* HOME */
-.coming {
-    font-size: 12px;
-    letter-spacing: 4px;
-    opacity: 0.6;
-    margin-bottom: 12px;
+.coming{
+    font-size:12px;
+    letter-spacing:4px;
+    opacity:0.6;
+    margin-bottom:12px;
+}
+.timer{
+    font-size:36px;
+    letter-spacing:6px;
+}
+.phase{
+    margin-top:20px;
+    font-size:12px;
+    opacity:0.5;
+    letter-spacing:3px;
 }
 
-.timer {
-    font-size: 36px;
-    letter-spacing: 6px;
-    font-weight: 500;
-}
-
-.phase {
-    margin-top: 20px;
-    font-size: 12px;
-    opacity: 0.5;
-    letter-spacing: 3px;
-}
-
-/* CONTACT */
-.contact a{
+/* CONTACT & WORK */
+a{
     color:#eaeaea;
     text-decoration:none;
     opacity:0.8;
 }
-
-.contact a:hover{
-    opacity:1;
-}
-
-.contact p{
-    margin:10px 0;
-    font-size:14px;
-}
+a:hover{ opacity:1; }
+p{ margin:10px 0; font-size:14px; }
 
 /* ABOUT */
-.about-box {
-    display: flex;
-    gap: 40px;
-    max-width: 900px;
-    align-items: center;
-    flex-wrap: wrap;
+.about-box{
+    display:flex;
+    gap:40px;
+    max-width:900px;
+    align-items:center;
+    flex-wrap:wrap;
 }
-
-.about-text {
+.about-text{
     flex:1;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 1.7;
-    text-align: left;
-}
-
-.mystery-figure {
-    flex:1;
-    height: 240px;
-    background: linear-gradient(to bottom, #000, #111);
-    border: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.hoodie {
-    width: 110px;
-    height: 150px;
-    background: #000;
-    border-radius: 55px 55px 20px 20px;
-    position: relative;
-}
-
-.mask {
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 38px;
-    height: 55px;
-    border: 1px solid gold;
-    box-shadow: 0 0 12px rgba(255,215,0,0.6);
-}
-
-.secret {
-    position: absolute;
-    bottom: 15px;
-    font-size: 11px;
-    letter-spacing: 4px;
-    opacity: 0.6;
-}
-
-/* OUR WORK */
-.work a{
-    color:#eaeaea;
-    text-decoration:none;
     font-size:14px;
-    opacity:0.8;
+    opacity:0.75;
+    line-height:1.7;
+    text-align:left;
+}
+.mystery-figure{
+    flex:1;
+    height:240px;
+    background:linear-gradient(to bottom,#000,#111);
+    border:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+.hoodie{
+    width:110px;
+    height:150px;
+    background:#000;
+    border-radius:55px 55px 20px 20px;
+    position:relative;
+}
+.mask{
+    position:absolute;
+    top:40px;
+    left:50%;
+    transform:translateX(-50%);
+    width:38px;
+    height:55px;
+    border:1px solid gold;
+    box-shadow:0 0 12px rgba(255,215,0,0.6);
+}
+.secret{
+    position:absolute;
+    bottom:15px;
+    font-size:11px;
+    letter-spacing:4px;
+    opacity:0.6;
 }
 
-.work a:hover{
-    opacity:1;
+/* ASK QUESTION */
+.ask-box{
+    max-width:400px;
+    width:100%;
+}
+.ask-box input,
+.ask-box textarea{
+    width:100%;
+    background:#000;
+    border:1px solid rgba(255,255,255,0.15);
+    color:#eaeaea;
+    padding:12px;
+    margin-bottom:15px;
+    font-size:13px;
+}
+.ask-box button{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.3);
+    color:#eaeaea;
+    padding:12px;
+    cursor:pointer;
+    letter-spacing:2px;
+}
+.ask-box button:hover{
+    background:#111;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px){
-    .timer{
-        font-size:28px;
-        letter-spacing:4px;
-    }
-    .about-text{
-        text-align:center;
-    }
+@media(max-width:768px){
+    .timer{ font-size:28px; letter-spacing:4px; }
+    .about-text{ text-align:center; }
 }
 </style>
 </head>
@@ -176,6 +165,7 @@ nav span:hover {
 <nav>
     <span onclick="showTab('home')">HOME</span>
     <span onclick="showTab('work')">OUR WORK</span>
+    <span onclick="showTab('ask')">ASK QUESTION</span>
     <span onclick="showTab('contact')">CONTACT</span>
     <span onclick="showTab('about')">ABOUT</span>
 </nav>
@@ -188,16 +178,27 @@ nav span:hover {
 </div>
 
 <!-- OUR WORK -->
-<div id="work" class="section work">
+<div id="work" class="section">
     <p>
         <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-            YouTube Channel → Singhs Creations
+            YouTube → Singhs Creations
         </a>
     </p>
 </div>
 
+<!-- ASK QUESTION -->
+<div id="ask" class="section">
+    <form class="ask-box"
+    action="mailto:singhscreations2026@gmail.com"
+    method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Your Name" required>
+        <textarea name="Question" rows="5" placeholder="Ask your question..." required></textarea>
+        <button type="submit">SEND</button>
+    </form>
+</div>
+
 <!-- CONTACT -->
-<div id="contact" class="section contact">
+<div id="contact" class="section">
     <p>Email</p>
     <p>
         <a href="mailto:singhscreations2026@gmail.com">
@@ -219,14 +220,11 @@ nav span:hover {
         <div class="about-text">
             I am an independent filmmaker building a cinematic universe
             rooted in science fiction, mystery, and mythology.
-            Indovar Universe unfolds slowly — where silence,
-            questions, and unseen forces matter more than noise.
+            Indovar Universe unfolds slowly — where silence and questions
+            matter more than noise.
         </div>
-
         <div class="mystery-figure">
-            <div class="hoodie">
-                <div class="mask"></div>
-            </div>
+            <div class="hoodie"><div class="mask"></div></div>
             <div class="secret">SECRET</div>
         </div>
     </div>
@@ -235,26 +233,23 @@ nav span:hover {
 <script>
 function showTab(id){
     document.querySelectorAll('.section')
-    .forEach(sec => sec.classList.remove('active'));
+    .forEach(sec=>sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
 
-const targetDate = new Date("March 10, 2026 00:00:00").getTime();
-
+const targetDate=new Date("March 10, 2026 00:00:00").getTime();
 setInterval(()=>{
-    const now = new Date().getTime();
-    const diff = targetDate - now;
-
-    const d = Math.floor(diff / (1000*60*60*24));
-    const h = Math.floor((diff / (1000*60*60)) % 24);
-    const m = Math.floor((diff / (1000*60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("timer").innerHTML =
-        String(d).padStart(2,'0')+" : "+
-        String(h).padStart(2,'0')+" : "+
-        String(m).padStart(2,'0')+" : "+
-        String(s).padStart(2,'0');
+    const now=new Date().getTime();
+    const diff=targetDate-now;
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor((diff/(1000*60*60))%24);
+    const m=Math.floor((diff/(1000*60))%60);
+    const s=Math.floor((diff/1000)%60);
+    document.getElementById("timer").innerHTML=
+    String(d).padStart(2,'0')+" : "+
+    String(h).padStart(2,'0')+" : "+
+    String(m).padStart(2,'0')+" : "+
+    String(s).padStart(2,'0');
 },1000);
 </script>
 
