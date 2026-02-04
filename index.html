@@ -1,141 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Launch</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      background: #000;
-      color: #fff;
-      text-align: center;
-    }
+body{
+  background:#000;
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
-    /* NAV */
-    .nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px;
-      border-bottom: 1px solid #222;
-    }
+.wrapper{
+  width:100%;
+  max-width:900px;
+  padding:20px;
+  text-align:center;
+}
 
-    .nav button {
-      background: none;
-      border: none;
-      color: #aaa;
-      font-size: 16px;
-      cursor: pointer;
-    }
+.coming{
+  font-size:clamp(24px, 5vw, 36px);
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
 
-    .nav button.active {
-      color: #00ff6a;
-      font-weight: bold;
-    }
+#countdown{
+  font-size:clamp(16px, 3.5vw, 22px);
+  color:#00bfff;
+  margin-bottom:25px;
+}
 
-    /* SECTIONS */
-    .section {
-      padding: 80px 20px;
-    }
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+}
 
-    #work {
-      display: none;
-    }
+.tabs button{
+  padding:10px 18px;
+  border:none;
+  border-radius:25px;
+  background:#111;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+}
 
-    .coming {
-      font-size: 20px;
-      letter-spacing: 3px;
-      margin-bottom: 25px;
-    }
+.tabs button.active{
+  background:#00bfff;
+  color:#000;
+}
 
-    .clock {
-      font-size: 26px;
-      letter-spacing: 4px;
-      color: #00ff6a;
-    }
+.content{
+  display:none;
+  font-size:clamp(14px, 3vw, 16px);
+  line-height:1.5;
+}
 
-    .work a {
-      padding: 14px 26px;
-      border-radius: 30px;
-      background: #00ff6a;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 16px;
-    }
-  </style>
+.content a{
+  color:#00bfff;
+  text-decoration:none;
+  word-break:break-word;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <div class="nav">
-    <button class="active" onclick="showHome()">Home</button>
-    <button onclick="showWork()">Our Work</button>
+<div class="wrapper">
+
+  <div class="coming">COMING SOON</div>
+  <div id="countdown"></div>
+
+  <div class="tabs">
+    <button class="active" onclick="openTab('work',this)">Our Work</button>
+    <button onclick="openTab('contact',this)">Contact Us</button>
+    <button onclick="openTab('about',this)">About</button>
   </div>
 
-  <!-- HOME -->
-  <div class="section" id="home">
-    <div class="coming">COMING SOON</div>
-    <div class="clock" id="clock">-- : -- : -- : --</div>
-  </div>
-
-  <!-- OUR WORK -->
-  <div class="section work" id="work">
+  <div id="work" class="content" style="display:block;">
     <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-      Open YouTube
+      Visit Our YouTube Channel
     </a>
   </div>
 
-  <!-- SCRIPT -->
-  <script>
-    function showHome() {
-      document.getElementById("home").style.display = "block";
-      document.getElementById("work").style.display = "none";
-      setActive(0);
-    }
+  <div id="contact" class="content">
+    Email: contact@comingsoon.com<br>
+    Instagram: @yourpage
+  </div>
 
-    function showWork() {
-      document.getElementById("home").style.display = "none";
-      document.getElementById("work").style.display = "block";
-      setActive(1);
-    }
+  <div id="about" class="content">
+    This channel focuses on creativity, ideas and original content.<br>
+    Something exciting is on the way.
+  </div>
 
-    function setActive(i) {
-      const btns = document.querySelectorAll(".nav button");
-      btns.forEach(b => b.classList.remove("active"));
-      btns[i].classList.add("active");
-    }
+</div>
 
-    // COUNTDOWN (10 March)
-    const target = new Date("March 10, 2026 00:00:00").getTime();
+<script>
+function openTab(tabName, btn){
+  document.querySelectorAll('.content').forEach(c => c.style.display="none");
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.remove("active"));
 
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = target - now;
+  document.getElementById(tabName).style.display="block";
+  btn.classList.add("active");
+}
 
-      if (diff <= 0) {
-        document.getElementById("clock").innerHTML = "00 : 00 : 00 : 00";
-        return;
-      }
+// Countdown
+let targetDate = new Date("March 10, 2026 00:00:00").getTime();
 
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / (1000 * 60)) % 60);
-      const s = Math.floor((diff / 1000) % 60);
+setInterval(()=>{
+  let now = new Date().getTime();
+  let diff = targetDate - now;
 
-      document.getElementById("clock").innerHTML =
-        d + " : " + h + " : " + m + " : " + s;
-    }, 1000);
-  </script>
+  let d = Math.floor(diff/(1000*60*60*24));
+  let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  let m = Math.floor((diff%(1000*60*60))/(1000*60));
+  let s = Math.floor((diff%(1000*60))/1000);
+
+  document.getElementById("countdown").innerHTML =
+    d+"d "+h+"h "+m+"m "+s+"s";
+},1000);
+</script>
 
 </body>
 </html>
