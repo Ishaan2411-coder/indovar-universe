@@ -14,15 +14,15 @@ body{
     letter-spacing:1px;
 }
 
+/* NAV */
 nav{
     display:flex;
     justify-content:center;
-    gap:40px;
+    gap:35px;
     padding:18px 10px;
     border-bottom:1px solid rgba(255,255,255,0.08);
     flex-wrap:wrap;
 }
-
 nav span{
     cursor:pointer;
     font-size:13px;
@@ -31,6 +31,7 @@ nav span{
 }
 nav span:hover{opacity:1;}
 
+/* SECTIONS */
 .section{
     display:none;
     min-height:calc(100vh - 80px);
@@ -60,6 +61,23 @@ nav span:hover{opacity:1;}
     font-size:12px;
     opacity:.5;
     letter-spacing:3px;
+}
+
+/* OUR WORK */
+.work a{
+    color:#eaeaea;
+    text-decoration:none;
+    font-size:15px;
+    opacity:.8;
+}
+.work a:hover{opacity:1;}
+
+/* ASK */
+.ask iframe{
+    width:100%;
+    max-width:640px;
+    height:800px;
+    border:none;
 }
 
 /* CONTACT */
@@ -123,15 +141,6 @@ nav span:hover{opacity:1;}
     letter-spacing:4px;
     opacity:.6;
 }
-
-/* OUR WORK */
-.work a{
-    color:#eaeaea;
-    text-decoration:none;
-    font-size:15px;
-    opacity:.8;
-}
-.work a:hover{opacity:1;}
 </style>
 </head>
 
@@ -140,6 +149,7 @@ nav span:hover{opacity:1;}
 <nav>
     <span onclick="showTab('home')">HOME</span>
     <span onclick="showTab('work')">OUR WORK</span>
+    <span onclick="showTab('ask')">ASK</span>
     <span onclick="showTab('contact')">CONTACT</span>
     <span onclick="showTab('about')">ABOUT</span>
 </nav>
@@ -156,6 +166,12 @@ nav span:hover{opacity:1;}
     <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
         Visit Our YouTube Channel →
     </a>
+</div>
+
+<!-- ASK -->
+<div id="ask" class="section ask">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform?embedded=true">
+    </iframe>
 </div>
 
 <!-- CONTACT -->
