@@ -3,124 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coming Soon</title>
+<title>Indovar Universe</title>
 
 <style>
-body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:Arial, sans-serif;
-  text-align:center;
-}
+    body {
+        margin: 0;
+        background: radial-gradient(circle at top, #111 0%, #000 65%);
+        color: #eaeaea;
+        font-family: "Segoe UI", Arial, sans-serif;
+        letter-spacing: 1px;
+    }
 
-.container{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 18px 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-wrap: wrap;
+    }
 
-h1{
-  letter-spacing:3px;
-  font-size:32px;
-  margin-bottom:10px;
-}
+    nav span {
+        cursor: pointer;
+        font-size: 13px;
+        opacity: 0.65;
+        transition: 0.3s;
+        white-space: nowrap;
+    }
 
-#countdown{
-  font-size:20px;
-  margin-bottom:30px;
-}
+    nav span:hover {
+        opacity: 1;
+    }
 
-.tabs{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
+    .section {
+        display: none;
+        min-height: calc(100vh - 80px);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+    }
 
-.tabs button{
-  background:#111;
-  border:none;
-  color:#fff;
-  padding:10px 18px;
-  border-radius:20px;
-  cursor:pointer;
-}
+    .active {
+        display: flex;
+        flex-direction: column;
+    }
 
-.tabs button.active{
-  background:#00bfff;
-  color:#000;
-}
+    /* HOME */
+    .coming {
+        font-size: 13px;
+        letter-spacing: 4px;
+        opacity: 0.6;
+        margin-bottom: 15px;
+    }
 
-.section{
-  display:none;
-  margin-top:25px;
-  font-size:15px;
-}
+    .timer {
+        font-size: clamp(26px, 6vw, 42px);
+        letter-spacing: 6px;
+        font-weight: 500;
+    }
 
-a{
-  color:#00bfff;
-  text-decoration:none;
-}
+    .phase {
+        margin-top: 18px;
+        font-size: 12px;
+        opacity: 0.5;
+        letter-spacing: 3px;
+    }
+
+    /* CONTACT */
+    .contact p {
+        font-size: 14px;
+        opacity: 0.8;
+        margin: 10px 0;
+    }
+
+    /* ABOUT */
+    .about-box {
+        display: flex;
+        gap: 40px;
+        max-width: 900px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .about-text {
+        flex: 1;
+        font-size: 14px;
+        opacity: 0.75;
+        line-height: 1.7;
+        text-align: left;
+        min-width: 260px;
+    }
+
+    .mystery-figure {
+        flex: 1;
+        height: 240px;
+        position: relative;
+        background: linear-gradient(to bottom, #000, #111);
+        border: 1px solid rgba(255,255,255,0.08);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 220px;
+    }
+
+    .hoodie {
+        width: 110px;
+        height: 150px;
+        background: #000;
+        border-radius: 60px 60px 20px 20px;
+        position: relative;
+    }
+
+    .mask {
+        position: absolute;
+        top: 42px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 38px;
+        height: 52px;
+        border: 1px solid gold;
+        box-shadow: 0 0 12px rgba(255,215,0,0.6);
+        opacity: 0.8;
+    }
+
+    .secret {
+        position: absolute;
+        bottom: 16px;
+        font-size: 11px;
+        letter-spacing: 4px;
+        opacity: 0.6;
+    }
+
+    /* OUR WORK */
+    .work a {
+        color: #eaeaea;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    .work a:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<nav>
+    <span onclick="showTab('home')">HOME</span>
+    <span onclick="showTab('work')">OUR WORK</span>
+    <span onclick="showTab('contact')">CONTACT</span>
+    <span onclick="showTab('about')">ABOUT</span>
+</nav>
 
-  <h1>COMING SOON</h1>
-  <div id="countdown"></div>
+<!-- HOME -->
+<div id="home" class="section active">
+    <div class="coming">COMING ON</div>
+    <div class="timer" id="timer">00 : 00 : 00 : 00</div>
+    <div class="phase">PHASE 1 ANNOUNCEMENT</div>
+</div>
 
-  <div class="tabs">
-    <button class="active" onclick="openTab('home',this)">Home</button>
-    <button onclick="openTab('work',this)">Our Work</button>
-    <button onclick="openTab('contact',this)">Contact</button>
-  </div>
-
-  <div id="home" class="section" style="display:block;">
-    <!-- Empty on purpose (same as starting) -->
-  </div>
-
-  <div id="work" class="section">
+<!-- OUR WORK -->
+<div id="work" class="section work">
     <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-      Visit Our YouTube Channel
+        YOUTUBE CHANNEL → SINGH'S CREATIONS
     </a>
-  </div>
+</div>
 
-  <div id="contact" class="section">
-    Email: Singhscreations2026@gmail.com<br>
-    Instagram: Singhs_creations01
-  </div>
+<!-- CONTACT -->
+<div id="contact" class="section contact">
+    <p>Email</p>
+    <p>singhscreations2026@gmail.com</p>
+    <br>
+    <p>Instagram</p>
+    <p>Singhs_creations01</p>
+</div>
 
+<!-- ABOUT -->
+<div id="about" class="section">
+    <div class="about-box">
+        <div class="about-text">
+            I am an independent filmmaker building a long-form cinematic universe
+            rooted in science fiction, mystery, and mythology. Indovar Universe
+            unfolds slowly — where silence, questions, and unseen forces matter.
+        </div>
+
+        <div class="mystery-figure">
+            <div class="hoodie">
+                <div class="mask"></div>
+            </div>
+            <div class="secret">SECRET</div>
+        </div>
+    </div>
 </div>
 
 <script>
-function openTab(id,btn){
-  document.querySelectorAll('.section').forEach(s=>s.style.display="none");
-  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove("active"));
-  document.getElementById(id).style.display="block";
-  btn.classList.add("active");
-}
+    function showTab(id) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
 
-// Countdown
-let target = new Date("March 10, 2026 00:00:00").getTime();
+    const targetDate = new Date("March 10, 2026 00:00:00").getTime();
 
-setInterval(()=>{
-  let now = new Date().getTime();
-  let diff = target - now;
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
 
-  let d = Math.floor(diff/(1000*60*60*24));
-  let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  let m = Math.floor((diff%(1000*60*60))/(1000*60));
-  let s = Math.floor((diff%(1000*60))/1000);
+        let d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        let m = Math.floor((diff / (1000 * 60)) % 60);
+        let s = Math.floor((diff / 1000) % 60);
 
-  document.getElementById("countdown").innerHTML =
-    d+"d "+h+"h "+m+"m "+s+"s";
-},1000);
+        document.getElementById("timer").innerHTML =
+            String(d).padStart(2, '0') + " : " +
+            String(h).padStart(2, '0') + " : " +
+            String(m).padStart(2, '0') + " : " +
+            String(s).padStart(2, '0');
+    }, 1000);
 </script>
 
 </body>
