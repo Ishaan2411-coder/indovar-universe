@@ -19,6 +19,7 @@
       text-align: center;
     }
 
+    /* NAV */
     .nav {
       display: flex;
       justify-content: center;
@@ -40,17 +41,25 @@
       font-weight: bold;
     }
 
-    .home, .work {
+    /* SECTIONS */
+    .section {
       padding: 80px 20px;
     }
 
-    .work {
+    #work {
       display: none;
     }
 
-    .countdown {
+    .coming {
       font-size: 20px;
       letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
+
+    .clock {
+      font-size: 26px;
+      letter-spacing: 4px;
+      color: #00ff6a;
     }
 
     .work a {
@@ -67,40 +76,66 @@
 
 <body>
 
+  <!-- NAV -->
   <div class="nav">
-    <button class="active" onclick="home()">Home</button>
-    <button onclick="work()">Our Work</button>
+    <button class="active" onclick="showHome()">Home</button>
+    <button onclick="showWork()">Our Work</button>
   </div>
 
-  <div class="home" id="home">
-    <div class="countdown">COMING SOON ⏳</div>
+  <!-- HOME -->
+  <div class="section" id="home">
+    <div class="coming">COMING SOON</div>
+    <div class="clock" id="clock">-- : -- : -- : --</div>
   </div>
 
-  <div class="work" id="work">
+  <!-- OUR WORK -->
+  <div class="section work" id="work">
     <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
       Open YouTube
     </a>
   </div>
 
+  <!-- SCRIPT -->
   <script>
-    function home() {
+    function showHome() {
       document.getElementById("home").style.display = "block";
       document.getElementById("work").style.display = "none";
-      set(0);
+      setActive(0);
     }
 
-    function work() {
+    function showWork() {
       document.getElementById("home").style.display = "none";
       document.getElementById("work").style.display = "block";
-      set(1);
+      setActive(1);
     }
 
-    function set(i) {
-      document.querySelectorAll(".nav button").forEach(b => b.classList.remove("active"));
-      document.querySelectorAll(".nav button")[i].classList.add("active");
+    function setActive(i) {
+      const btns = document.querySelectorAll(".nav button");
+      btns.forEach(b => b.classList.remove("active"));
+      btns[i].classList.add("active");
     }
+
+    // COUNTDOWN (10 March)
+    const target = new Date("March 10, 2026 00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById("clock").innerHTML = "00 : 00 : 00 : 00";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("clock").innerHTML =
+        d + " : " + h + " : " + m + " : " + s;
+    }, 1000);
   </script>
 
 </body>
 </html>
-    
