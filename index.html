@@ -2,31 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Indovar Universe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indovar Universe</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
 body {
     margin: 0;
-    background: radial-gradient(circle at top, #111 0%, #000 65%);
+    background: radial-gradient(circle at top, #111 0%, #000 70%);
     color: #eaeaea;
     font-family: "Segoe UI", Arial, sans-serif;
     letter-spacing: 1px;
 }
 
+/* NAVBAR */
 nav {
     display: flex;
     justify-content: center;
-    gap: 32px;
-    padding: 20px 0;
+    gap: 40px;
+    padding: 20px 10px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     flex-wrap: wrap;
 }
 
 nav span {
     cursor: pointer;
-    font-size: 14px;
-    opacity: 0.65;
+    font-size: 13px;
+    opacity: 0.6;
     transition: 0.3s;
 }
 
@@ -34,6 +39,7 @@ nav span:hover {
     opacity: 1;
 }
 
+/* SECTIONS */
 .section {
     display: none;
     min-height: calc(100vh - 80px);
@@ -50,14 +56,14 @@ nav span:hover {
 
 /* HOME */
 .coming {
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 4px;
     opacity: 0.6;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .timer {
-    font-size: clamp(28px, 6vw, 42px);
+    font-size: 36px;
     letter-spacing: 6px;
     font-weight: 500;
 }
@@ -69,78 +75,98 @@ nav span:hover {
     letter-spacing: 3px;
 }
 
-/* LINKS */
-a {
-    color: #eaeaea;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+/* CONTACT */
+.contact a{
+    color:#eaeaea;
+    text-decoration:none;
+    opacity:0.8;
 }
 
-/* CONTACT */
-.contact p {
-    font-size: 15px;
-    opacity: 0.8;
-    margin: 12px 0;
+.contact a:hover{
+    opacity:1;
+}
+
+.contact p{
+    margin:10px 0;
+    font-size:14px;
 }
 
 /* ABOUT */
 .about-box {
     display: flex;
-    gap: 50px;
+    gap: 40px;
     max-width: 900px;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .about-text {
-    flex: 1;
+    flex:1;
     font-size: 14px;
     opacity: 0.75;
     line-height: 1.7;
     text-align: left;
-    min-width: 260px;
 }
 
 .mystery-figure {
-    flex: 1;
-    min-width: 240px;
-    height: 260px;
-    position: relative;
+    flex:1;
+    height: 240px;
     background: linear-gradient(to bottom, #000, #111);
     border: 1px solid rgba(255,255,255,0.08);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .hoodie {
-    width: 120px;
-    height: 160px;
+    width: 110px;
+    height: 150px;
     background: #000;
-    border-radius: 60px 60px 20px 20px;
+    border-radius: 55px 55px 20px 20px;
     position: relative;
 }
 
 .mask {
     position: absolute;
-    top: 45px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
+    width: 38px;
     height: 55px;
     border: 1px solid gold;
     box-shadow: 0 0 12px rgba(255,215,0,0.6);
-    opacity: 0.8;
 }
 
 .secret {
     position: absolute;
-    bottom: 18px;
-    font-size: 12px;
+    bottom: 15px;
+    font-size: 11px;
     letter-spacing: 4px;
     opacity: 0.6;
+}
+
+/* OUR WORK */
+.work a{
+    color:#eaeaea;
+    text-decoration:none;
+    font-size:14px;
+    opacity:0.8;
+}
+
+.work a:hover{
+    opacity:1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+    .timer{
+        font-size:28px;
+        letter-spacing:4px;
+    }
+    .about-text{
+        text-align:center;
+    }
 }
 </style>
 </head>
@@ -162,11 +188,10 @@ a:hover {
 </div>
 
 <!-- OUR WORK -->
-<div id="work" class="section">
-    <p style="opacity:0.7; margin-bottom:10px;">YouTube Channel</p>
+<div id="work" class="section work">
     <p>
         <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-            youtube.com/@IshaanSingh-x9f
+            YouTube Channel → Singhs Creations
         </a>
     </p>
 </div>
@@ -179,13 +204,11 @@ a:hover {
             singhscreations2026@gmail.com
         </a>
     </p>
-
     <br>
-
     <p>Instagram</p>
     <p>
         <a href="https://www.instagram.com/singhs_creations01" target="_blank">
-            Singhs_creations01
+            singhs_creations01
         </a>
     </p>
 </div>
@@ -194,10 +217,10 @@ a:hover {
 <div id="about" class="section">
     <div class="about-box">
         <div class="about-text">
-            I am an independent filmmaker building a long-form cinematic universe
-            rooted in science fiction, mystery, and mythology. Indovar Universe
-            is designed to unfold slowly, where silence, questions, and unseen
-            forces are as important as spectacle.
+            I am an independent filmmaker building a cinematic universe
+            rooted in science fiction, mystery, and mythology.
+            Indovar Universe unfolds slowly — where silence,
+            questions, and unseen forces matter more than noise.
         </div>
 
         <div class="mystery-figure">
@@ -210,29 +233,29 @@ a:hover {
 </div>
 
 <script>
-function showTab(id) {
+function showTab(id){
     document.querySelectorAll('.section')
-        .forEach(sec => sec.classList.remove('active'));
+    .forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
 
 const targetDate = new Date("March 10, 2026 00:00:00").getTime();
 
-setInterval(() => {
+setInterval(()=>{
     const now = new Date().getTime();
     const diff = targetDate - now;
 
-    let d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    let h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    let m = Math.floor((diff / (1000 * 60)) % 60);
-    let s = Math.floor((diff / 1000) % 60);
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
 
     document.getElementById("timer").innerHTML =
-        String(d).padStart(2, '0') + " : " +
-        String(h).padStart(2, '0') + " : " +
-        String(m).padStart(2, '0') + " : " +
-        String(s).padStart(2, '0');
-}, 1000);
+        String(d).padStart(2,'0')+" : "+
+        String(h).padStart(2,'0')+" : "+
+        String(m).padStart(2,'0')+" : "+
+        String(s).padStart(2,'0');
+},1000);
 </script>
 
 </body>
