@@ -1,256 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indovar Universe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Space Project</title>
 
-<style>
-*{ box-sizing:border-box; }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body{
-    margin:0;
-    background:radial-gradient(circle at top,#111 0%,#000 70%);
-    color:#eaeaea;
-    font-family:"Segoe UI",Arial,sans-serif;
-    letter-spacing:1px;
-}
+    body {
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
 
-/* NAV */
-nav{
-    display:flex;
-    justify-content:center;
-    gap:35px;
-    padding:20px 10px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    flex-wrap:wrap;
-}
+    /* ===== STAR CANVAS ===== */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
 
-nav span{
-    cursor:pointer;
-    font-size:13px;
-    opacity:0.6;
-    transition:0.3s;
-}
-nav span:hover{ opacity:1; }
+    /* ===== NAVBAR ===== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-/* SECTIONS */
-.section{
-    display:none;
-    min-height:calc(100vh - 80px);
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 20px;
-}
-.active{
-    display:flex;
-    flex-direction:column;
-}
+    nav button {
+      background: transparent;
+      border: 1px solid #4fc3ff;
+      color: #4fc3ff;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
 
-/* HOME */
-.coming{
-    font-size:12px;
-    letter-spacing:4px;
-    opacity:0.6;
-    margin-bottom:12px;
-}
-.timer{
-    font-size:36px;
-    letter-spacing:6px;
-}
-.phase{
-    margin-top:20px;
-    font-size:12px;
-    opacity:0.5;
-    letter-spacing:3px;
-}
+    nav button:hover {
+      background: #4fc3ff;
+      color: black;
+    }
 
-/* CONTACT & WORK */
-a{
-    color:#eaeaea;
-    text-decoration:none;
-    opacity:0.8;
-}
-a:hover{ opacity:1; }
-p{ margin:10px 0; font-size:14px; }
+    /* ===== SECTIONS ===== */
+    section {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      min-height: 100vh;
+    }
 
-/* ABOUT */
-.about-box{
-    display:flex;
-    gap:40px;
-    max-width:900px;
-    align-items:center;
-    flex-wrap:wrap;
-}
-.about-text{
-    flex:1;
-    font-size:14px;
-    opacity:0.75;
-    line-height:1.7;
-    text-align:left;
-}
-.mystery-figure{
-    flex:1;
-    height:240px;
-    background:linear-gradient(to bottom,#000,#111);
-    border:1px solid rgba(255,255,255,0.08);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-}
-.hoodie{
-    width:110px;
-    height:150px;
-    background:#000;
-    border-radius:55px 55px 20px 20px;
-    position:relative;
-}
-.mask{
-    position:absolute;
-    top:40px;
-    left:50%;
-    transform:translateX(-50%);
-    width:38px;
-    height:55px;
-    border:1px solid gold;
-    box-shadow:0 0 12px rgba(255,215,0,0.6);
-}
-.secret{
-    position:absolute;
-    bottom:15px;
-    font-size:11px;
-    letter-spacing:4px;
-    opacity:0.6;
-}
+    section.active {
+      display: block;
+    }
 
-/* ASK QUESTION */
-.ask-box{
-    max-width:400px;
-    width:100%;
-}
-.ask-box input,
-.ask-box textarea{
-    width:100%;
-    background:#000;
-    border:1px solid rgba(255,255,255,0.15);
-    color:#eaeaea;
-    padding:12px;
-    margin-bottom:15px;
-    font-size:13px;
-}
-.ask-box button{
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.3);
-    color:#eaeaea;
-    padding:12px;
-    cursor:pointer;
-    letter-spacing:2px;
-}
-.ask-box button:hover{
-    background:#111;
-}
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .timer{ font-size:28px; letter-spacing:4px; }
-    .about-text{ text-align:center; }
-}
-</style>
+    p {
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    /* ===== BUTTON LINKS ===== */
+    .link-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      background: #4fc3ff;
+      color: black;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+<canvas id="stars"></canvas>
+
+<!-- ===== NAV ===== -->
 <nav>
-    <span onclick="showTab('home')">HOME</span>
-    <span onclick="showTab('work')">OUR WORK</span>
-    <span onclick="showTab('ask')">ASK QUESTION</span>
-    <span onclick="showTab('contact')">CONTACT</span>
-    <span onclick="showTab('about')">ABOUT</span>
+  <button onclick="showTab('home')">Home</button>
+  <button onclick="showTab('work')">Our Work</button>
+  <button onclick="showTab('ask')">Ask Question</button>
+  <button onclick="showTab('contact')">Contact</button>
 </nav>
 
-<!-- HOME -->
-<div id="home" class="section active">
-    <div class="coming">COMING ON</div>
-    <div class="timer" id="timer">00 : 00 : 00 : 00</div>
-    <div class="phase">PHASE 1 ANNOUNCEMENT</div>
-</div>
+<!-- ===== HOME ===== -->
+<section id="home" class="active">
+  <h1>Welcome to the Void</h1>
+  <p>
+    In a silent universe full of stars, ideas are born.  
+    This space is for curiosity, creation, and connection.  
+    Look around — the cosmos is listening.
+  </p>
+</section>
 
-<!-- OUR WORK -->
-<div id="work" class="section">
-    <p>
-        <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-            YouTube → Singhs Creations
-        </a>
-    </p>
-</div>
+<!-- ===== OUR WORK ===== -->
+<section id="work">
+  <h1>Our Work</h1>
+  <p>Explore our creations on YouTube.</p>
+  <a class="link-btn" href="https://youtube.com" target="_blank">
+    Visit YouTube
+  </a>
+</section>
 
-<!-- ASK QUESTION -->
-<div id="ask" class="section">
-    <form class="ask-box"
-    action="mailto:singhscreations2026@gmail.com"
-    method="post" enctype="text/plain">
-        <input type="text" name="Name" placeholder="Your Name" required>
-        <textarea name="Question" rows="5" placeholder="Ask your question..." required></textarea>
-        <button type="submit">SEND</button>
-    </form>
-</div>
+<!-- ===== ASK QUESTION ===== -->
+<section id="ask">
+  <h1>Ask a Question</h1>
+  <p>
+    Have a doubt or curiosity?  
+    Ask freely — your identity stays safe.
+  </p>
+  <a class="link-btn" href="https://forms.gle/" target="_blank">
+    Ask via Google Form
+  </a>
+</section>
 
-<!-- CONTACT -->
-<div id="contact" class="section">
-    <p>Email</p>
-    <p>
-        <a href="mailto:singhscreations2026@gmail.com">
-            singhscreations2026@gmail.com
-        </a>
-    </p>
-    <br>
-    <p>Instagram</p>
-    <p>
-        <a href="https://www.instagram.com/singhs_creations01" target="_blank">
-            singhs_creations01
-        </a>
-    </p>
-</div>
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <h1>Contact Us</h1>
+  <p>Reach out through any portal below.</p>
 
-<!-- ABOUT -->
-<div id="about" class="section">
-    <div class="about-box">
-        <div class="about-text">
-            I am an independent filmmaker building a cinematic universe
-            rooted in science fiction, mystery, and mythology.
-            Indovar Universe unfolds slowly — where silence and questions
-            matter more than noise.
-        </div>
-        <div class="mystery-figure">
-            <div class="hoodie"><div class="mask"></div></div>
-            <div class="secret">SECRET</div>
-        </div>
-    </div>
-</div>
+  <a class="link-btn" href="https://instagram.com" target="_blank">
+    Instagram
+  </a>
+  <br/><br/>
+  <a class="link-btn" href="mailto:example@gmail.com">
+    Email Us
+  </a>
+</section>
 
+<!-- ===== SCRIPT ===== -->
 <script>
-function showTab(id){
-    document.querySelectorAll('.section')
-    .forEach(sec=>sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
+  function showTab(id) {
+    document.querySelectorAll("section").forEach(sec => {
+      sec.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+  }
 
-const targetDate=new Date("March 10, 2026 00:00:00").getTime();
-setInterval(()=>{
-    const now=new Date().getTime();
-    const diff=targetDate-now;
-    const d=Math.floor(diff/(1000*60*60*24));
-    const h=Math.floor((diff/(1000*60*60))%24);
-    const m=Math.floor((diff/(1000*60))%60);
-    const s=Math.floor((diff/1000)%60);
-    document.getElementById("timer").innerHTML=
-    String(d).padStart(2,'0')+" : "+
-    String(h).padStart(2,'0')+" : "+
-    String(m).padStart(2,'0')+" : "+
-    String(s).padStart(2,'0');
-},1000);
+  /* ===== STAR ANIMATION ===== */
+  const canvas = document.getElementById("stars");
+  const ctx = canvas.getContext("2d");
+
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
+
+  let stars = Array.from({length: 150}, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 1.5,
+    s: Math.random() * 0.5 + 0.2
+  }));
+
+  function animate() {
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle = "white";
+
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      star.y += star.s;
+      if (star.y > h) {
+        star.y = 0;
+        star.x = Math.random() * w;
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener("resize", () => {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  });
 </script>
 
 </body>
