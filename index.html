@@ -2,169 +2,165 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Indovar Universe</title>
 
 <style>
-*{ box-sizing:border-box; }
+    body {
+        margin: 0;
+        background: radial-gradient(circle at top, #111 0%, #000 65%);
+        color: #eaeaea;
+        font-family: "Segoe UI", Arial, sans-serif;
+        letter-spacing: 1px;
+    }
 
-body{
-    margin:0;
-    background:radial-gradient(circle at top,#111 0%,#000 70%);
-    color:#eaeaea;
-    font-family:"Segoe UI",Arial,sans-serif;
-    letter-spacing:1px;
-}
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        padding: 22px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-wrap: wrap;
+    }
 
-/* NAV */
-nav{
-    display:flex;
-    justify-content:center;
-    gap:35px;
-    padding:20px 10px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    flex-wrap:wrap;
-}
-nav span{
-    cursor:pointer;
-    font-size:13px;
-    opacity:0.6;
-    transition:0.3s;
-}
-nav span:hover{ opacity:1; }
+    nav span {
+        cursor: pointer;
+        font-size: 14px;
+        opacity: 0.65;
+        transition: 0.3s;
+    }
 
-/* SECTIONS */
-.section{
-    display:none;
-    min-height:calc(100vh - 80px);
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 20px;
-}
-.active{
-    display:flex;
-    flex-direction:column;
-}
+    nav span:hover {
+        opacity: 1;
+    }
 
-/* HOME */
-.coming{
-    font-size:12px;
-    letter-spacing:4px;
-    opacity:0.6;
-    margin-bottom:12px;
-}
-.timer{
-    font-size:36px;
-    letter-spacing:6px;
-}
-.phase{
-    margin-top:20px;
-    font-size:12px;
-    opacity:0.5;
-    letter-spacing:3px;
-}
+    .section {
+        display: none;
+        min-height: calc(100vh - 80px);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+    }
 
-/* LINKS */
-a{
-    color:#eaeaea;
-    text-decoration:none;
-    opacity:0.8;
-}
-a:hover{ opacity:1; }
-p{ margin:10px 0; font-size:14px; }
+    .active {
+        display: flex;
+        flex-direction: column;
+    }
 
-/* ABOUT */
-.about-box{
-    display:flex;
-    gap:40px;
-    max-width:900px;
-    align-items:center;
-    flex-wrap:wrap;
-}
-.about-text{
-    flex:1;
-    font-size:14px;
-    opacity:0.75;
-    line-height:1.7;
-    text-align:left;
-}
-.mystery-figure{
-    flex:1;
-    height:240px;
-    background:linear-gradient(to bottom,#000,#111);
-    border:1px solid rgba(255,255,255,0.08);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-}
-.hoodie{
-    width:110px;
-    height:150px;
-    background:#000;
-    border-radius:55px 55px 20px 20px;
-    position:relative;
-}
-.mask{
-    position:absolute;
-    top:40px;
-    left:50%;
-    transform:translateX(-50%);
-    width:38px;
-    height:55px;
-    border:1px solid gold;
-    box-shadow:0 0 12px rgba(255,215,0,0.6);
-}
-.secret{
-    position:absolute;
-    bottom:15px;
-    font-size:11px;
-    letter-spacing:4px;
-    opacity:0.6;
-}
+    /* HOME */
+    .coming {
+        font-size: 14px;
+        letter-spacing: 4px;
+        opacity: 0.6;
+        margin-bottom: 15px;
+    }
 
-/* ASK QUESTION – SPACE CARD */
-.ask-card{
-    width:100%;
-    max-width:420px;
-    background:rgba(0,0,0,0.55);
-    border:1px solid rgba(255,255,255,0.12);
-    padding:30px;
-    backdrop-filter: blur(6px);
-}
+    .timer {
+        font-size: 42px;
+        letter-spacing: 8px;
+        font-weight: 500;
+    }
 
-.ask-card input,
-.ask-card textarea{
-    width:100%;
-    background:#000;
-    border:1px solid rgba(255,255,255,0.2);
-    color:#eaeaea;
-    padding:12px;
-    margin-bottom:15px;
-    font-size:13px;
-    outline:none;
-}
+    .phase {
+        margin-top: 20px;
+        font-size: 13px;
+        opacity: 0.5;
+        letter-spacing: 3px;
+    }
 
-.ask-card button{
-    width:100%;
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.35);
-    color:#eaeaea;
-    padding:12px;
-    cursor:pointer;
-    letter-spacing:2px;
-    transition:0.3s;
-}
-.ask-card button:hover{
-    background:#111;
-}
+    /* CONTACT */
+    .contact p {
+        font-size: 15px;
+        opacity: 0.8;
+        margin: 12px 0;
+    }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .timer{ font-size:28px; letter-spacing:4px; }
-    .about-text{ text-align:center; }
-}
+    .contact a {
+        color: #eaeaea;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* ABOUT */
+    .about-box {
+        display: flex;
+        gap: 70px;
+        max-width: 900px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .about-text {
+        width: 100%;
+        max-width: 420px;
+        font-size: 14px;
+        opacity: 0.75;
+        line-height: 1.7;
+        text-align: left;
+    }
+
+    .mystery-figure {
+        width: 100%;
+        max-width: 420px;
+        height: 260px;
+        position: relative;
+        background: linear-gradient(to bottom, #000, #111);
+        border: 1px solid rgba(255,255,255,0.08);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hoodie {
+        width: 120px;
+        height: 160px;
+        background: #000;
+        border-radius: 60px 60px 20px 20px;
+        position: relative;
+    }
+
+    .mask {
+        position: absolute;
+        top: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 55px;
+        border: 1px solid gold;
+        box-shadow: 0 0 12px rgba(255,215,0,0.6);
+        opacity: 0.8;
+    }
+
+    .secret {
+        position: absolute;
+        bottom: 18px;
+        font-size: 12px;
+        letter-spacing: 4px;
+        opacity: 0.6;
+    }
+
+    /* ASK QUESTION */
+    .ask-text {
+        font-size: 14px;
+        opacity: 0.7;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+    }
+
+    .ask-btn {
+        padding: 14px 32px;
+        border: 1px solid rgba(255,255,255,0.4);
+        background: transparent;
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: 3px;
+        font-size: 13px;
+        transition: 0.3s;
+    }
+
+    .ask-btn:hover {
+        background: rgba(255,255,255,0.08);
+    }
 </style>
 </head>
 
@@ -172,10 +168,9 @@ p{ margin:10px 0; font-size:14px; }
 
 <nav>
     <span onclick="showTab('home')">HOME</span>
-    <span onclick="showTab('work')">OUR WORK</span>
-    <span onclick="showTab('ask')">ASK QUESTION</span>
     <span onclick="showTab('contact')">CONTACT</span>
     <span onclick="showTab('about')">ABOUT</span>
+    <span onclick="showTab('ask')">ASK</span>
 </nav>
 
 <!-- HOME -->
@@ -185,39 +180,21 @@ p{ margin:10px 0; font-size:14px; }
     <div class="phase">PHASE 1 ANNOUNCEMENT</div>
 </div>
 
-<!-- OUR WORK -->
-<div id="work" class="section">
-    <p>
-        <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-            YouTube → Singhs Creations
-        </a>
-    </p>
-</div>
-
-<!-- ASK QUESTION -->
-<div id="ask" class="section">
-    <form class="ask-card"
-    action="mailto:singhscreations2026@gmail.com"
-    method="post" enctype="text/plain">
-        <input type="text" name="Name" placeholder="Your Name" required>
-        <textarea name="Question" rows="5" placeholder="Ask your question..." required></textarea>
-        <button type="submit">SEND</button>
-    </form>
-</div>
-
 <!-- CONTACT -->
-<div id="contact" class="section">
+<div id="contact" class="section contact">
     <p>Email</p>
     <p>
         <a href="mailto:singhscreations2026@gmail.com">
             singhscreations2026@gmail.com
         </a>
     </p>
+
     <br>
+
     <p>Instagram</p>
     <p>
-        <a href="https://www.instagram.com/singhs_creations01" target="_blank">
-            singhs_creations01
+        <a href="https://instagram.com/Singhs_creations01" target="_blank">
+            Singhs_creations01
         </a>
     </p>
 </div>
@@ -226,39 +203,60 @@ p{ margin:10px 0; font-size:14px; }
 <div id="about" class="section">
     <div class="about-box">
         <div class="about-text">
-            I am an independent filmmaker building a cinematic universe
-            rooted in science fiction, mystery, and mythology.
-            Indovar Universe unfolds slowly — where silence and questions
-            matter more than noise.
+            I am an independent filmmaker building a long-form cinematic universe
+            rooted in science fiction, mystery, and mythology. Indovar Universe
+            is designed to unfold slowly, where silence, questions, and unseen
+            forces are as important as spectacle.
         </div>
+
         <div class="mystery-figure">
-            <div class="hoodie"><div class="mask"></div></div>
+            <div class="hoodie">
+                <div class="mask"></div>
+            </div>
             <div class="secret">SECRET</div>
         </div>
     </div>
 </div>
 
-<script>
-function showTab(id){
-    document.querySelectorAll('.section')
-    .forEach(sec=>sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
+<!-- ASK QUESTION -->
+<div id="ask" class="section">
+    <div class="ask-text">
+        ASK YOUR QUESTION<br>
+        NO LOGIN REQUIRED
+    </div>
 
-const targetDate=new Date("March 10, 2026 00:00:00").getTime();
-setInterval(()=>{
-    const now=new Date().getTime();
-    const diff=targetDate-now;
-    const d=Math.floor(diff/(1000*60*60*24));
-    const h=Math.floor((diff/(1000*60*60))%24);
-    const m=Math.floor((diff/(1000*60))%60);
-    const s=Math.floor((diff/1000)%60);
-    document.getElementById("timer").innerHTML=
-    String(d).padStart(2,'0')+" : "+
-    String(h).padStart(2,'0')+" : "+
-    String(m).padStart(2,'0')+" : "+
-    String(s).padStart(2,'0');
-},1000);
+    <a class="ask-btn"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform"
+       target="_blank">
+       OPEN FORM
+    </a>
+</div>
+
+<script>
+    function showTab(id) {
+        document.querySelectorAll('.section')
+        .forEach(sec => sec.classList.remove('active'));
+
+        document.getElementById(id).classList.add('active');
+    }
+
+    const targetDate = new Date("March 10, 2026 00:00:00").getTime();
+
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        let d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        let m = Math.floor((diff / (1000 * 60)) % 60);
+        let s = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("timer").innerHTML =
+            String(d).padStart(2, '0') + " : " +
+            String(h).padStart(2, '0') + " : " +
+            String(m).padStart(2, '0') + " : " +
+            String(s).padStart(2, '0');
+    }, 1000);
 </script>
 
 </body>
