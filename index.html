@@ -1,280 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Indovar Universe</title>
-
-<style>
-    body {
-        margin: 0;
-        background:
-            radial-gradient(circle at top, rgba(255,255,255,0.05) 0%, transparent 40%),
-            radial-gradient(circle at bottom, rgba(0,120,255,0.08), transparent 45%),
-            #000;
-        color: #eaeaea;
-        font-family: "Segoe UI", Arial, sans-serif;
-        letter-spacing: 1px;
-        overflow-x: hidden;
-    }
-
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 42px;
-        padding: 20px 12px;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        flex-wrap: wrap;
-        backdrop-filter: blur(6px);
-    }
-
-    nav span {
-        cursor: pointer;
-        font-size: 13px;
-        opacity: 0.65;
-        transition: 0.3s;
-        position: relative;
-    }
-
-    nav span::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 0%;
-        height: 1px;
-        background: rgba(0,180,255,0.8);
-        transition: 0.3s;
-    }
-
-    nav span:hover {
-        opacity: 1;
-        text-shadow: 0 0 6px rgba(0,180,255,0.6);
-    }
-
-    nav span:hover::after {
-        width: 100%;
-    }
-
-    .section {
-        display: none;
-        min-height: calc(100vh - 90px);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 40px 18px;
-    }
-
-    .active {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* HOME */
-    .coming {
-        font-size: 13px;
-        letter-spacing: 5px;
-        opacity: 0.55;
-        margin-bottom: 18px;
-    }
-
-    .timer {
-        font-size: clamp(28px, 6vw, 44px);
-        letter-spacing: 8px;
-        font-weight: 500;
-        margin-bottom: 22px;
-        text-shadow:
-            0 0 10px rgba(0,150,255,0.35),
-            0 0 22px rgba(0,150,255,0.15);
-    }
-
-    .phase {
-        font-size: 12px;
-        opacity: 0.5;
-        letter-spacing: 4px;
-    }
-
-    /* OUR WORK */
-    a {
-        color: #eaeaea;
-        text-decoration: none;
-        opacity: 0.75;
-    }
-
-    a:hover {
-        opacity: 1;
-        text-shadow: 0 0 8px rgba(255,255,255,0.4);
-    }
-
-    /* CONTACT */
-    .contact p {
-        font-size: 14px;
-        margin: 12px 0;
-        opacity: 0.8;
-    }
-
-    /* ABOUT */
-    .about-box {
-        display: flex;
-        gap: 50px;
-        max-width: 950px;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .about-text {
-        max-width: 420px;
-        font-size: 14px;
-        opacity: 0.75;
-        line-height: 1.8;
-        text-align: left;
-    }
-
-    .mystery-figure {
-        width: 230px;
-        height: 270px;
-        background: linear-gradient(to bottom, #000, #111);
-        border: 1px solid rgba(255,255,255,0.08);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        box-shadow: 0 0 25px rgba(0,0,0,0.8);
-    }
-
-    .hoodie {
-        width: 120px;
-        height: 160px;
-        background: #000;
-        border-radius: 60px 60px 20px 20px;
-        position: relative;
-    }
-
-    .mask {
-        position: absolute;
-        top: 45px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40px;
-        height: 55px;
-        border: 1px solid gold;
-        box-shadow:
-            0 0 10px rgba(255,215,0,0.6),
-            0 0 22px rgba(255,215,0,0.25);
-        opacity: 0.85;
-    }
-
-    .secret {
-        position: absolute;
-        bottom: 16px;
-        font-size: 12px;
-        letter-spacing: 5px;
-        opacity: 0.55;
-    }
-
-    /* FORM */
-    iframe {
-        width: 100%;
-        max-width: 640px;
-        height: 620px;
-        border: none;
-        background: transparent;
-    }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<nav>
-    <span onclick="showTab('home')">HOME</span>
-    <span onclick="showTab('ourwork')">OUR WORK</span>
-    <span onclick="showTab('suggestions')">SUGGESTIONS</span>
-    <span onclick="showTab('contact')">CONTACT</span>
-    <span onclick="showTab('about')">ABOUT</span>
-</nav>
+  <nav>
+    <button onclick="showTab('home')">Home</button>
+    <button onclick="showTab('work')">Our Work</button>
+    <button onclick="showTab('suggestions')">Suggestions</button>
+    <button onclick="showTab('contact')">Contact</button>
+    <button onclick="showTab('about')">About</button>
+  </nav>
 
-<div id="home" class="section active">
-    <div class="coming">COMING ON</div>
-    <div class="timer" id="timer">00 : 00 : 00 : 00</div>
-    <div class="phase">PHASE 1 ANNOUNCEMENT</div>
-</div>
+  <!-- HOME -->
+  <section id="home" class="tab active">
+    <h1 class="coming">COMING SOON</h1>
 
-<div id="ourwork" class="section">
-    <p style="opacity:0.75;font-size:14px;">YouTube Channel</p>
-    <p>
-        <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-            youtube.com/@IshaanSingh-x9f
-        </a>
-    </p>
-</div>
-
-<div id="suggestions" class="section">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform"></iframe>
-</div>
-
-<div id="contact" class="section contact">
-    <p>Email</p>
-    <p>
-        <a href="mailto:singhscreations2026@gmail.com">
-            singhscreations2026@gmail.com
-        </a>
-    </p>
-
-    <br>
-
-    <p>Instagram</p>
-    <p>
-        <a href="https://instagram.com/Singhs_creations01" target="_blank">
-            Singhs_creations01
-        </a>
-    </p>
-</div>
-
-<div id="about" class="section">
-    <div class="about-box">
-        <div class="about-text">
-            I am an independent filmmaker building a long-form cinematic universe
-            rooted in science fiction, mystery, and mythology. Indovar Universe
-            unfolds slowly — where silence, unanswered questions and unseen
-            forces matter as much as spectacle.
-        </div>
-
-        <div class="mystery-figure">
-            <div class="hoodie">
-                <div class="mask"></div>
-            </div>
-            <div class="secret">SECRET</div>
-        </div>
+    <div id="countdown">
+      <span id="days">00</span> :
+      <span id="hours">00</span> :
+      <span id="minutes">00</span> :
+      <span id="seconds">00</span>
     </div>
-</div>
 
-<script>
-    function showTab(id) {
-        document.querySelectorAll('.section').forEach(sec =>
-            sec.classList.remove('active')
-        );
-        document.getElementById(id).classList.add('active');
-    }
+    <p class="phase">Indoverse Phase 1 Announcement</p>
+  </section>
 
-    const targetDate = new Date("March 10, 2026 00:00:00").getTime();
+  <!-- OUR WORK -->
+  <section id="work" class="tab">
+    <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
+      Visit YouTube Channel
+    </a>
+  </section>
 
-    setInterval(() => {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
-        if (diff < 0) return;
+  <!-- SUGGESTIONS -->
+  <section id="suggestions" class="tab">
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform?embedded=true"
+      loading="lazy">
+    </iframe>
+  </section>
 
-        let d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        let h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        let m = Math.floor((diff / (1000 * 60)) % 60);
-        let s = Math.floor((diff / 1000) % 60);
+  <!-- CONTACT -->
+  <section id="contact" class="tab">
+    <a href="mailto:Singhscreations2026@gmail.com">Email</a><br><br>
+    <a href="https://instagram.com/Singhs_creations01" target="_blank">Instagram</a>
+  </section>
 
-        document.getElementById("timer").innerHTML =
-            String(d).padStart(2,'0') + " : " +
-            String(h).padStart(2,'0') + " : " +
-            String(m).padStart(2,'0') + " : " +
-            String(s).padStart(2,'0');
-    }, 1000);
-</script>
+  <!-- ABOUT -->
+  <section id="about" class="tab about">
+    <div class="avatar">SECRET</div>
+    <p>
+      A filmmaker working silently in the dark, building stories, universes
+      and visions beyond time.
+    </p>
+  </section>
 
+  <script src="script.js"></script>
 </body>
 </html>
