@@ -7,19 +7,24 @@
 <style>
     body {
         margin: 0;
-        background: radial-gradient(circle at top, #111 0%, #000 65%);
+        background:
+            radial-gradient(circle at top, rgba(255,255,255,0.05) 0%, transparent 40%),
+            radial-gradient(circle at bottom, rgba(0,120,255,0.08), transparent 45%),
+            #000;
         color: #eaeaea;
         font-family: "Segoe UI", Arial, sans-serif;
         letter-spacing: 1px;
+        overflow-x: hidden;
     }
 
     nav {
         display: flex;
         justify-content: center;
-        gap: 40px;
-        padding: 18px 10px;
+        gap: 42px;
+        padding: 20px 12px;
         border-bottom: 1px solid rgba(255,255,255,0.08);
         flex-wrap: wrap;
+        backdrop-filter: blur(6px);
     }
 
     nav span {
@@ -27,20 +32,36 @@
         font-size: 13px;
         opacity: 0.65;
         transition: 0.3s;
-        white-space: nowrap;
+        position: relative;
+    }
+
+    nav span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0%;
+        height: 1px;
+        background: rgba(0,180,255,0.8);
+        transition: 0.3s;
     }
 
     nav span:hover {
         opacity: 1;
+        text-shadow: 0 0 6px rgba(0,180,255,0.6);
+    }
+
+    nav span:hover::after {
+        width: 100%;
     }
 
     .section {
         display: none;
-        min-height: calc(100vh - 80px);
+        min-height: calc(100vh - 90px);
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 30px 15px;
+        padding: 40px 18px;
     }
 
     .active {
@@ -51,47 +72,51 @@
     /* HOME */
     .coming {
         font-size: 13px;
-        letter-spacing: 4px;
-        opacity: 0.6;
-        margin-bottom: 12px;
+        letter-spacing: 5px;
+        opacity: 0.55;
+        margin-bottom: 18px;
     }
 
     .timer {
-        font-size: clamp(26px, 6vw, 42px);
-        letter-spacing: 6px;
+        font-size: clamp(28px, 6vw, 44px);
+        letter-spacing: 8px;
         font-weight: 500;
+        margin-bottom: 22px;
+        text-shadow:
+            0 0 10px rgba(0,150,255,0.35),
+            0 0 22px rgba(0,150,255,0.15);
     }
 
     .phase {
-        margin-top: 18px;
         font-size: 12px;
         opacity: 0.5;
-        letter-spacing: 3px;
+        letter-spacing: 4px;
+    }
+
+    /* OUR WORK */
+    a {
+        color: #eaeaea;
+        text-decoration: none;
+        opacity: 0.75;
+    }
+
+    a:hover {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(255,255,255,0.4);
     }
 
     /* CONTACT */
     .contact p {
         font-size: 14px;
+        margin: 12px 0;
         opacity: 0.8;
-        margin: 10px 0;
-    }
-
-    .contact a {
-        color: #eaeaea;
-        text-decoration: none;
-        opacity: 0.8;
-    }
-
-    .contact a:hover {
-        opacity: 1;
-        text-decoration: underline;
     }
 
     /* ABOUT */
     .about-box {
         display: flex;
-        gap: 40px;
-        max-width: 900px;
+        gap: 50px;
+        max-width: 950px;
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
@@ -101,19 +126,20 @@
         max-width: 420px;
         font-size: 14px;
         opacity: 0.75;
-        line-height: 1.7;
+        line-height: 1.8;
         text-align: left;
     }
 
     .mystery-figure {
-        width: 220px;
-        height: 260px;
-        position: relative;
+        width: 230px;
+        height: 270px;
         background: linear-gradient(to bottom, #000, #111);
         border: 1px solid rgba(255,255,255,0.08);
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+        box-shadow: 0 0 25px rgba(0,0,0,0.8);
     }
 
     .hoodie {
@@ -132,24 +158,27 @@
         width: 40px;
         height: 55px;
         border: 1px solid gold;
-        box-shadow: 0 0 12px rgba(255,215,0,0.6);
-        opacity: 0.8;
+        box-shadow:
+            0 0 10px rgba(255,215,0,0.6),
+            0 0 22px rgba(255,215,0,0.25);
+        opacity: 0.85;
     }
 
     .secret {
         position: absolute;
         bottom: 16px;
         font-size: 12px;
-        letter-spacing: 4px;
-        opacity: 0.6;
+        letter-spacing: 5px;
+        opacity: 0.55;
     }
 
     /* FORM */
     iframe {
         width: 100%;
         max-width: 640px;
-        height: 600px;
+        height: 620px;
         border: none;
+        background: transparent;
     }
 </style>
 </head>
@@ -164,16 +193,14 @@
     <span onclick="showTab('about')">ABOUT</span>
 </nav>
 
-<!-- HOME -->
 <div id="home" class="section active">
     <div class="coming">COMING ON</div>
     <div class="timer" id="timer">00 : 00 : 00 : 00</div>
     <div class="phase">PHASE 1 ANNOUNCEMENT</div>
 </div>
 
-<!-- OUR WORK -->
 <div id="ourwork" class="section">
-    <p style="opacity:0.8;font-size:14px;">YouTube Channel</p>
+    <p style="opacity:0.75;font-size:14px;">YouTube Channel</p>
     <p>
         <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
             youtube.com/@IshaanSingh-x9f
@@ -181,14 +208,10 @@
     </p>
 </div>
 
-<!-- SUGGESTIONS -->
 <div id="suggestions" class="section">
-    <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform">
-    </iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform"></iframe>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="section contact">
     <p>Email</p>
     <p>
@@ -207,14 +230,13 @@
     </p>
 </div>
 
-<!-- ABOUT -->
 <div id="about" class="section">
     <div class="about-box">
         <div class="about-text">
             I am an independent filmmaker building a long-form cinematic universe
             rooted in science fiction, mystery, and mythology. Indovar Universe
-            is designed to unfold slowly, where silence, questions, and unseen
-            forces are as important as spectacle.
+            unfolds slowly — where silence, unanswered questions and unseen
+            forces matter as much as spectacle.
         </div>
 
         <div class="mystery-figure">
@@ -239,7 +261,6 @@
     setInterval(() => {
         const now = new Date().getTime();
         const diff = targetDate - now;
-
         if (diff < 0) return;
 
         let d = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -248,10 +269,10 @@
         let s = Math.floor((diff / 1000) % 60);
 
         document.getElementById("timer").innerHTML =
-            String(d).padStart(2, '0') + " : " +
-            String(h).padStart(2, '0') + " : " +
-            String(m).padStart(2, '0') + " : " +
-            String(s).padStart(2, '0');
+            String(d).padStart(2,'0') + " : " +
+            String(h).padStart(2,'0') + " : " +
+            String(m).padStart(2,'0') + " : " +
+            String(s).padStart(2,'0');
     }, 1000);
 </script>
 
