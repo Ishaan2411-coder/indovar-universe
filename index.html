@@ -1,65 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indovar Universe</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <nav>
-    <button onclick="showTab('home')">Home</button>
-    <button onclick="showTab('work')">Our Work</button>
-    <button onclick="showTab('suggestions')">Suggestions</button>
-    <button onclick="showTab('contact')">Contact</button>
-    <button onclick="showTab('about')">About</button>
-  </nav>
+<nav>
+  <span onclick="showTab('home')">HOME</span>
+  <span onclick="showTab('work')">OUR WORK</span>
+  <span onclick="showTab('suggestions')">SUGGESTIONS</span>
+  <span onclick="showTab('contact')">CONTACT</span>
+  <span onclick="showTab('about')">ABOUT</span>
+</nav>
 
-  <!-- HOME -->
-  <section id="home" class="tab active">
-    <h1 class="coming">COMING SOON</h1>
+<section id="home" class="section active">
+  <div class="coming">COMING SOON</div>
+  <div id="timer">00 : 00 : 00 : 00</div>
+  <div class="phase">PHASE 1 ANNOUNCEMENT</div>
+</section>
 
-    <div id="countdown">
-      <span id="days">00</span> :
-      <span id="hours">00</span> :
-      <span id="minutes">00</span> :
-      <span id="seconds">00</span>
+<section id="work" class="section">
+  <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
+    Visit YouTube Channel
+  </a>
+</section>
+
+<section id="suggestions" class="section">
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform?embedded=true">
+  </iframe>
+</section>
+
+<section id="contact" class="section">
+  <a href="mailto:singhscreations2026@gmail.com">singhscreations2026@gmail.com</a><br><br>
+  <a href="https://instagram.com/Singhs_creations01" target="_blank">
+    Singhs_creations01
+  </a>
+</section>
+
+<section id="about" class="section">
+  <div class="about-box">
+    <div class="about-text">
+      An independent filmmaker crafting a long-form cinematic universe
+      rooted in silence, mystery and time.
     </div>
+    <div class="mystery">
+      SECRET
+    </div>
+  </div>
+</section>
 
-    <p class="phase">Indoverse Phase 1 Announcement</p>
-  </section>
-
-  <!-- OUR WORK -->
-  <section id="work" class="tab">
-    <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
-      Visit YouTube Channel
-    </a>
-  </section>
-
-  <!-- SUGGESTIONS -->
-  <section id="suggestions" class="tab">
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform?embedded=true"
-      loading="lazy">
-    </iframe>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="tab">
-    <a href="mailto:Singhscreations2026@gmail.com">Email</a><br><br>
-    <a href="https://instagram.com/Singhs_creations01" target="_blank">Instagram</a>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="tab about">
-    <div class="avatar">SECRET</div>
-    <p>
-      A filmmaker working silently in the dark, building stories, universes
-      and visions beyond time.
-    </p>
-  </section>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
