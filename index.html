@@ -188,7 +188,8 @@ function showTab(id){
 }
 
 /* ✅ UPDATED DATE */
-const targetDate = new Date("February 14, 2026 17:00:00").getTime();
+const targetDate = new Date().getTime() - 1000;
+
 
 const timerInterval = setInterval(()=>{
   const now = new Date().getTime();
