@@ -1,88 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>SAHAY.AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indovar Universe</title>
 
 <style>
-body{
+*{
   margin:0;
-  background:black;
-  color:white;
-  font-family: Arial, sans-serif;
-  text-align:center;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", Arial, sans-serif;
 }
 
-#countdown{
-  margin-top:40vh;
-  font-size:28px;
-  letter-spacing:3px;
+body{
+  background: radial-gradient(circle at top, #111 0%, #000 70%);
+  color:#eaeaea;
+  letter-spacing:1px;
 }
 
-#reveal{
+/* NAV */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  padding:16px 10px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  flex-wrap:wrap;
+}
+
+nav span{
+  cursor:pointer;
+  font-size:12px;
+  opacity:0.6;
+}
+
+nav span:hover{
+  opacity:1;
+}
+
+/* SECTIONS */
+.section{
   display:none;
+  min-height:calc(100vh - 80px);
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
 }
 
-h1{
-  margin-top:20vh;
-  letter-spacing:5px;
+.section.active{
+  display:flex;
+  flex-direction:column;
 }
 
-hr{
-  width:120px;
-  opacity:0.4;
-  margin:20px auto 40px;
+/* HOME */
+.coming{
+  font-size:12px;
+  letter-spacing:4px;
+  opacity:0.6;
+  margin-bottom:14px;
 }
 
-.movie{
-  margin:30px 0;
-  font-size:22px;
+#timer{
+  font-size:30px;
+  letter-spacing:6px;
 }
 
-.movie span{
-  display:block;
-  margin-top:6px;
+.phase{
+  margin-top:18px;
+  font-size:12px;
+  letter-spacing:3px;
   opacity:0.5;
-  font-size:13px;
 }
 
-/* theme colors */
-.red{color:#ff4d4d;}
-.blue{color:#4da6ff;}
-.green{color:#4dff88;}
-.yellow{color:#ffd24d;}
-.purple{color:#b84dff;}
+/* LINKS */
+a{
+  color:#eaeaea;
+  text-decoration:none;
+  letter-spacing:2px;
+  opacity:0.75;
+}
+
+a:hover{
+  opacity:1;
+}
+
+/* ABOUT */
+.about-box{
+  max-width:600px;
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.about-text{
+  font-size:14px;
+  opacity:0.75;
+  line-height:1.7;
+}
+
+.mystery{
+  width:120px;
+  height:120px;
+  margin:auto;
+  border-radius:50%;
+  border:1px solid gold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  letter-spacing:3px;
+  opacity:0.8;
+}
+
+/* FORM */
+iframe{
+  width:100%;
+  max-width:640px;
+  height:600px;
+  border:none;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+  #timer{ font-size:42px; }
+}
 </style>
 </head>
 
 <body>
 
-<div id="countdown"></div>
+<nav>
+  <span onclick="showTab('home')">HOME</span>
+  <span onclick="showTab('work')">OUR WORK</span>
+  <span onclick="showTab('suggestions')">SUGGESTIONS</span>
+  <span onclick="showTab('contact')">CONTACT</span>
+  <span onclick="showTab('about')">ABOUT</span>
+</nav>
 
-<div id="reveal">
-  <h1>SAHAY.AI</h1>
-  <hr>
+<!-- HOME -->
+<div id="home" class="section active">
+  <div class="coming">COMING SOON</div>
+  <div id="timer">00 : 00 : 00 : 00</div>
+  <div class="phase">PHASE 1 ANNOUNCEMENT</div>
+</div>
 
-  <div class="movie red">MOVIE ONE<span>Coming Soon</span></div>
-  <div class="movie blue">MOVIE TWO<span>Coming Soon</span></div>
-  <div class="movie green">MOVIE THREE<span>Coming Soon</span></div>
-  <div class="movie yellow">MOVIE FOUR<span>Coming Soon</span></div>
-  <div class="movie purple">MOVIE FIVE<span>Coming Soon</span></div>
+<!-- OUR WORK -->
+<div id="work" class="section">
+  <a href="https://www.youtube.com/@IshaanSingh-x9f" target="_blank">
+    VISIT YOUTUBE CHANNEL
+  </a>
+</div>
+
+<!-- SUGGESTIONS -->
+<div id="suggestions" class="section">
+  <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSdunXDlpEJGzK30-oh2_Wmxq0tmM1jbLzzNXf5fGHtAUgKyvw/viewform?embedded=true">
+  </iframe>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+  <a href="mailto:singhscreations2026@gmail.com">
+    singhscreations2026@gmail.com
+  </a>
+  <br><br>
+  <a href="https://instagram.com/Singhs_creations01" target="_blank">
+    Singhs_creations01
+  </a>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+  <div class="about-box">
+    <div class="about-text">
+      An independent filmmaker building a long-form cinematic universe
+      rooted in science fiction, mystery and silence.
+    </div>
+    <div class="mystery">SECRET</div>
+  </div>
 </div>
 
 <script>
-const target = new Date("2026-02-14T17:00:00+05:30").getTime();
-const cd = document.getElementById("countdown");
-const rv = document.getElementById("reveal");
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 
-function run(){
+/* ✅ UPDATED DATE */
+const targetDate = new Date("February 14, 2026 17:00:00").getTime();
+
+const timerInterval = setInterval(()=>{
   const now = new Date().getTime();
-  const diff = target - now;
+  const diff = targetDate - now;
 
   if(diff <= 0){
-    cd.style.display = "none";
-    rv.style.display = "block";
-    clearInterval(loop);
+    clearInterval(timerInterval);
+    document.getElementById("timer").innerHTML = "SAHAY AI";
+    document.querySelector(".coming").style.display = "none";
+    document.querySelector(".phase").innerHTML = "NOW ANNOUNCED";
     return;
   }
 
@@ -91,17 +207,12 @@ function run(){
   const m = Math.floor((diff/(1000*60))%60);
   const s = Math.floor((diff/1000)%60);
 
-  cd.innerHTML = d+"d "+h+"h "+m+"m "+s+"s";
-}
-
-const loop = setInterval(run,1000);
-run();
-
-/* BACKUP */
-if(new Date().getTime() >= target){
-  cd.style.display = "none";
-  rv.style.display = "block";
-}
+  document.getElementById("timer").innerHTML =
+    String(d).padStart(2,'0')+" : "+
+    String(h).padStart(2,'0')+" : "+
+    String(m).padStart(2,'0')+" : "+
+    String(s).padStart(2,'0');
+},1000);
 </script>
 
 </body>
