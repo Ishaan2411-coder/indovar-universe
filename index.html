@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Singh's Creations | Indoverse</title>
+<title>Indoverse</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <nav>
-<a href="#home" class="home">Singh's Creations</a>
+<a href="#home" class="active">Home</a>
 <a href="#sahay">Sahay</a>
 <a href="#indovar">Indovar</a>
 <a href="#paradox">Paradox</a>
@@ -19,38 +18,59 @@
 <a href="#work">Our Work</a>
 </nav>
 
-<section id="home">
-<h1>INDOVERSE</h1>
+<div class="container">
+
+<section id="home" class="panel">
+<canvas id="homeCanvas"></canvas>
+<div class="content center">
+<h1 class="main-title">INDOVERSE</h1>
 <div id="countdown"></div>
+</div>
 </section>
 
-<section id="sahay">
-<h1>Sahay is not AI.<br>It’s our friend.</h1>
+<section id="sahay" class="panel sahay">
+<div class="content center">
+<h1>Sahay is not AI.<br>It's our friend.</h1>
+</div>
 </section>
 
-<section id="indovar">
+<section id="indovar" class="panel">
+<canvas id="spaceCanvas"></canvas>
+<div class="content center">
 <h1>What is beyond the Earth?</h1>
+</div>
 </section>
 
-<section id="paradox">
+<section id="paradox" class="panel paradox">
+<div class="content center">
 <h1>TIME ?</h1>
+</div>
 </section>
 
-<section id="fracture">
+<section id="fracture" class="panel">
+<canvas id="fractureCanvas"></canvas>
+<div class="content center">
 <h1>Sometimes time also breaks.</h1>
+</div>
 </section>
 
-<section id="ascent">
+<section id="ascent" class="panel">
+<canvas id="ascentCanvas"></canvas>
+<div class="content center">
 <h1>Everything has an end.</h1>
+</div>
 </section>
 
-<section id="work">
+<section id="work" class="panel work">
+<div class="content center">
 <h1>Our Work</h1>
-<a href="https://youtube.com" target="_blank">YouTube Channel</a>
+<a href="https://youtube.com" target="_blank">YouTube</a>
 <a href="https://instagram.com" target="_blank">Instagram</a>
+</div>
 </section>
+
+</div>
 
 <script src="script.js"></script>
 </body>
 </html>
-      
