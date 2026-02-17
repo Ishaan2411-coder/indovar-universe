@@ -2,17 +2,53 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins', sans-serif;
-scroll-behavior:smooth;
+font-family: 'Poppins', sans-serif;
 }
 
 body{
 background:black;
 color:white;
-overflow-x:hidden;
+overflow:hidden;
 }
 
-/* NAVBAR */
+/* SNAP SCROLL */
+.container{
+height:100vh;
+overflow-y:scroll;
+scroll-snap-type:y mandatory;
+scroll-behavior:smooth;
+}
+
+.panel{
+height:100vh;
+position:relative;
+scroll-snap-align:start;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+canvas{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:0;
+}
+
+.content{
+position:relative;
+z-index:2;
+text-align:center;
+padding:20px;
+}
+
+.center{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
 
 nav{
 position:fixed;
@@ -20,10 +56,9 @@ top:0;
 width:100%;
 display:flex;
 justify-content:center;
-align-items:center;
 gap:25px;
 padding:20px;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
@@ -31,168 +66,58 @@ z-index:1000;
 nav a{
 color:white;
 text-decoration:none;
-font-size:16px;
-opacity:0.7;
+opacity:0.6;
 transition:0.3s;
 }
 
+nav a.active,
 nav a:hover{
 opacity:1;
 }
 
-nav a.home{
-font-size:24px;
-font-weight:bold;
-color:gold;
-opacity:1;
-}
-
-/* SECTIONS */
-
-section{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-/* HOME */
-
-#home{
-background:radial-gradient(circle at center,#111,#000);
-color:gold;
-}
-
-#home h1{
-font-size:60px;
-letter-spacing:4px;
+.main-title{
+font-size:70px;
+letter-spacing:5px;
 }
 
 #countdown{
-font-size:28px;
 margin-top:20px;
+font-size:28px;
 }
 
-/* SAHAY */
-
-#sahay{
+/* Sahay */
+.sahay{
 background:black;
 color:#00ff00;
 font-family:monospace;
 }
 
-#sahay h1{
-font-size:40px;
-text-shadow:0 0 10px #00ff00;
-}
-
-/* INDOVAR */
-
-#indovar{
-background:url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') center/cover no-repeat;
-}
-
-#indovar h1{
-font-size:45px;
-background:rgba(0,0,0,0.6);
-padding:20px;
-}
-
-/* PARADOX */
-
-#paradox{
+/* Paradox */
+.paradox{
 background:white;
 color:black;
 filter:grayscale(100%);
 }
 
-#paradox h1{
-font-size:60px;
-}
-
-/* FRACTURE */
-
-#fracture{
-background:#200000;
-color:red;
-position:relative;
-overflow:hidden;
-}
-
-#fracture::before{
-content:"";
-position:absolute;
-width:200%;
-height:200%;
-background:radial-gradient(circle, red 1px, transparent 1px);
-background-size:50px 50px;
-animation:move 10s linear infinite;
-opacity:0.2;
-}
-
-@keyframes move{
-0%{transform:translate(0,0);}
-100%{transform:translate(-100px,-100px);}
-}
-
-#fracture h1{
-z-index:1;
-}
-
-/* ASCENT */
-
-#ascent{
-background:radial-gradient(circle at center,#5e00ff,#000);
-position:relative;
-overflow:hidden;
-}
-
-#ascent::before{
-content:"";
-position:absolute;
-width:300px;
-height:300px;
-background:white;
-border-radius:50%;
-animation:collapse 6s infinite alternate ease-in-out;
-opacity:0.1;
-}
-
-@keyframes collapse{
-0%{transform:scale(2);}
-100%{transform:scale(0.2);}
-}
-
-/* OUR WORK */
-
-#work{
+/* Work */
+.work{
 background:#111;
 }
 
-#work a{
+.work a{
 display:block;
 margin:15px;
 color:cyan;
-font-size:20px;
 text-decoration:none;
-transition:0.3s;
+font-size:20px;
 }
 
-#work a:hover{
+.work a:hover{
 color:white;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
-nav{
-flex-wrap:wrap;
-gap:15px;
-}
-#home h1{
-font-size:35px;
+.main-title{
+font-size:40px;
 }
 }
