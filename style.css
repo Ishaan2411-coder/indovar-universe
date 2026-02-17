@@ -1,166 +1,198 @@
-/* ===== Global Reset ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+scroll-behavior:smooth;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #000;
-    color: white;
-    overflow-x: hidden;
+body{
+background:black;
+color:white;
+overflow-x:hidden;
 }
 
-/* ===== Space Background ===== */
-.stars, .stars2 {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-    animation: moveStars 200s linear infinite;
-    z-index: -3;
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+padding:20px;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
-.stars2 {
-    animation-duration: 400s;
-    opacity: 0.4;
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+opacity:0.7;
+transition:0.3s;
 }
 
-@keyframes moveStars {
-    from { transform: translateY(0); }
-    to { transform: translateY(-2000px); }
+nav a:hover{
+opacity:1;
 }
 
-/* ===== Nebula Glow Effect ===== */
-.nebula {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 30%, rgba(138,43,226,0.4), transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(0,191,255,0.3), transparent 40%);
-    animation: pulse 8s infinite alternate;
-    z-index: -2;
+nav a.home{
+font-size:24px;
+font-weight:bold;
+color:gold;
+opacity:1;
 }
 
-@keyframes pulse {
-    from { opacity: 0.6; }
-    to { opacity: 1; }
+/* SECTIONS */
+
+section{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
-/* ===== Navbar ===== */
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 8%;
-    position: fixed;
-    width: 100%;
-    backdrop-filter: blur(10px);
-    background: rgba(0,0,0,0.3);
+/* HOME */
+
+#home{
+background:radial-gradient(circle at center,#111,#000);
+color:gold;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800;
-    letter-spacing: 2px;
+#home h1{
+font-size:60px;
+letter-spacing:4px;
 }
 
-nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
+#countdown{
+font-size:28px;
+margin-top:20px;
 }
 
-nav a:hover {
-    color: #00ffff;
+/* SAHAY */
+
+#sahay{
+background:black;
+color:#00ff00;
+font-family:monospace;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+#sahay h1{
+font-size:40px;
+text-shadow:0 0 10px #00ff00;
 }
 
-.glow-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
-    animation: floatText 3s ease-in-out infinite;
+/* INDOVAR */
+
+#indovar{
+background:url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') center/cover no-repeat;
 }
 
-@keyframes floatText {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+#indovar h1{
+font-size:45px;
+background:rgba(0,0,0,0.6);
+padding:20px;
 }
 
-/* ===== Countdown ===== */
-.countdown {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
+/* PARADOX */
+
+#paradox{
+background:white;
+color:black;
+filter:grayscale(100%);
 }
 
-.countdown div {
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(0,255,255,0.3);
+#paradox h1{
+font-size:60px;
 }
 
-.countdown span {
-    font-size: 2rem;
-    font-family: 'Orbitron', sans-serif;
+/* FRACTURE */
+
+#fracture{
+background:#200000;
+color:red;
+position:relative;
+overflow:hidden;
 }
 
-/* ===== Phase Section ===== */
-.phase {
-    padding: 80px 10%;
-    text-align: center;
+#fracture::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:radial-gradient(circle, red 1px, transparent 1px);
+background-size:50px 50px;
+animation:move 10s linear infinite;
+opacity:0.2;
 }
 
-.phase h2 {
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: 20px;
+@keyframes move{
+0%{transform:translate(0,0);}
+100%{transform:translate(-100px,-100px);}
 }
 
-.socials a {
-    margin: 10px;
-    display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid #00ffff;
-    border-radius: 30px;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
+#fracture h1{
+z-index:1;
 }
 
-.socials a:hover {
-    background: #00ffff;
-    color: black;
+/* ASCENT */
+
+#ascent{
+background:radial-gradient(circle at center,#5e00ff,#000);
+position:relative;
+overflow:hidden;
 }
 
-/* ===== Responsive ===== */
-@media(max-width:768px) {
-    .countdown {
-        flex-direction: column;
-    }
+#ascent::before{
+content:"";
+position:absolute;
+width:300px;
+height:300px;
+background:white;
+border-radius:50%;
+animation:collapse 6s infinite alternate ease-in-out;
+opacity:0.1;
+}
 
-    .glow-text {
-        font-size: 2rem;
-    }
+@keyframes collapse{
+0%{transform:scale(2);}
+100%{transform:scale(0.2);}
+}
 
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
+/* OUR WORK */
 
-    nav {
-        margin-top: 10px;
-    }
+#work{
+background:#111;
+}
+
+#work a{
+display:block;
+margin:15px;
+color:cyan;
+font-size:20px;
+text-decoration:none;
+transition:0.3s;
+}
+
+#work a:hover{
+color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+nav{
+flex-wrap:wrap;
+gap:15px;
+}
+#home h1{
+font-size:35px;
+}
 }
