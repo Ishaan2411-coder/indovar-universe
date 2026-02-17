@@ -1,28 +1,24 @@
-// ===== Set Countdown Date (Change this to your launch date) =====
-const launchDate = new Date("March 30, 2026 18:00:00").getTime();
+// COUNTDOWN
 
-// ===== Countdown Function =====
-const countdown = setInterval(() => {
+var launchDate = new Date("Aug 15, 2026 00:00:00").getTime();
 
-    const now = new Date().getTime();
-    const distance = launchDate - now;
+var x = setInterval(function() {
 
-    // Time calculations
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+var now = new Date().getTime();
+var distance = launchDate - now;
 
-    // Display results
-    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // If countdown ends
-    if (distance < 0) {
-        clearInterval(countdown);
-        document.querySelector(".countdown").innerHTML = "<h2>LAUNCHED 🚀</h2>";
-    }
+document.getElementById("countdown").innerHTML =
+days + "d " + hours + "h "
++ minutes + "m " + seconds + "s ";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("countdown").innerHTML = "INDOVERSE HAS BEGUN";
+}
 
 }, 1000);
