@@ -3,74 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indoverse</title>
-<link rel="stylesheet" href="style.css">
+<title>Cinematic Universe</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:black;
+color:white;
+font-family:'Cinzel',serif;
+overflow-x:hidden;
+}
+
+section{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:60px;
+padding:20px;
+z-index:1000;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:18px;
+letter-spacing:2px;
+}
+
+nav a.home{
+font-size:22px;
+font-weight:bold;
+}
+
+/* ================= HOME ================= */
+
+#home{
+background:black;
+}
+
+.gold-text{
+font-size:60px;
+background:linear-gradient(90deg,#c9a227,#fff3c4,#c9a227);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 15px rgba(255,215,0,0.4);
+}
+
+.countdown{
+margin-top:20px;
+font-size:30px;
+}
+
+/* ================= OUR WORK ================= */
+
+#work{
+background:black;
+}
+
+.icons{
+margin-top:40px;
+display:flex;
+gap:40px;
+}
+
+.icons a{
+font-size:40px;
+color:#d4af37;
+transition:0.3s;
+}
+
+.icons a:hover{
+transform:scale(1.2);
+text-shadow:0 0 15px gold;
+}
+
+/* ================= SAHAY ================= */
+
+#sahay{
+background:black;
+}
+
+#sahay h1{
+font-size:80px;
+color:#00ff88;
+text-shadow:0 0 20px #00ff88,0 0 50px #00ff88;
+font-family:'Orbitron',sans-serif;
+}
+
+#sahay p{
+margin-top:20px;
+font-size:22px;
+letter-spacing:3px;
+color:#00ff88;
+}
+
+/* ================= INDOVAR ================= */
+
+#indovar{
+background:radial-gradient(circle at center,#1a2a6c,#000);
+}
+
+#indovar h1{
+font-size:70px;
+background:linear-gradient(#fff,#8bbfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 20px rgba(255,255,255,0.6);
+}
+
+#indovar p{
+margin-top:20px;
+font-size:22px;
+letter-spacing:4px;
+}
+
+/* ================= PARADOX ================= */
+
+#paradox{
+background:black;
+color:white;
+font-family:'Cinzel',serif;
+}
+
+#paradox h1{
+font-size:70px;
+letter-spacing:8px;
+}
+
+#paradox p{
+margin-top:20px;
+font-size:20px;
+opacity:0.8;
+}
+
+/* subtle grain */
+#paradox::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:url("https://grainy-gradients.vercel.app/noise.svg");
+opacity:0.1;
+}
+
+/* ================= FRACTURE ================= */
+
+#fracture{
+background:black;
+overflow:hidden;
+}
+
+#fracture h1{
+font-size:70px;
+color:#ff1a1a;
+text-shadow:0 0 20px red;
+z-index:2;
+}
+
+#fracture p{
+margin-top:20px;
+color:#ff4d4d;
+z-index:2;
+}
+
+.branch{
+position:absolute;
+width:2px;
+height:200px;
+background:red;
+animation:grow 4s infinite alternate;
+}
+
+@keyframes grow{
+0%{transform:scaleY(0.3);}
+100%{transform:scaleY(1.2);}
+}
+
+/* ================= LAST ASCENT ================= */
+
+#last{
+background:radial-gradient(circle at center,#3a0066,#000);
+overflow:hidden;
+}
+
+#last h1{
+font-size:70px;
+color:#d580ff;
+text-shadow:0 0 20px purple;
+z-index:2;
+}
+
+#last p{
+margin-top:20px;
+z-index:2;
+}
+
+.singularity{
+position:absolute;
+width:20px;
+height:20px;
+background:white;
+border-radius:50%;
+animation:expand 6s infinite;
+}
+
+@keyframes expand{
+0%{transform:scale(1);box-shadow:0 0 10px white;}
+100%{transform:scale(8);box-shadow:0 0 80px purple;}
+}
+
+</style>
 </head>
 <body>
 
 <nav>
-<a href="#home" class="active">Home</a>
+<a href="#home">Luxury</a>
 <a href="#sahay">Sahay</a>
 <a href="#indovar">Indovar</a>
 <a href="#paradox">Paradox</a>
 <a href="#fracture">Fracture</a>
-<a href="#ascent">Ascent</a>
-<a href="#work">Our Work</a>
+<a href="#last">Last Ascent</a>
 </nav>
 
-<div class="container">
+<!-- HOME -->
+<section id="home">
+<h1 class="gold-text">Luxury World</h1>
+<div class="countdown" id="countdown"></div>
+</section>
 
-<section id="home" class="panel">
-<canvas id="homeCanvas"></canvas>
-<div class="content center">
-<h1 class="main-title">INDOVERSE</h1>
-<div id="countdown"></div>
+<!-- WORK -->
+<section id="work">
+<h1 class="gold-text">Our Work</h1>
+<div class="icons">
+<a href="#">▶</a>
+<a href="#">📷</a>
 </div>
 </section>
 
-<section id="sahay" class="panel sahay">
-<div class="content center">
-<h1>Sahay is not AI.<br>It's our friend.</h1>
-</div>
+<!-- SAHAY -->
+<section id="sahay">
+<h1>SAHAY</h1>
+<p>Sahay is not an AI, it’s an emotion.</p>
 </section>
 
-<section id="indovar" class="panel">
-<canvas id="spaceCanvas"></canvas>
-<div class="content center">
-<h1>What is beyond the Earth?</h1>
-</div>
+<!-- INDOVAR -->
+<section id="indovar">
+<h1>INDOVAR</h1>
+<p>There is life beyond Earth</p>
 </section>
 
-<section id="paradox" class="panel paradox">
-<div class="content center">
-<h1>TIME ?</h1>
-</div>
+<!-- PARADOX -->
+<section id="paradox">
+<h1>PARADOX</h1>
+<p>Some things happen only beyond time.</p>
 </section>
 
-<section id="fracture" class="panel">
-<canvas id="fractureCanvas"></canvas>
-<div class="content center">
-<h1>Sometimes time also breaks.</h1>
-</div>
+<!-- FRACTURE -->
+<section id="fracture">
+<div class="branch" style="left:30%;top:20%;"></div>
+<div class="branch" style="left:60%;top:40%;"></div>
+<h1>FRACTURE</h1>
+<p>There are dimensional fractures also.</p>
 </section>
 
-<section id="ascent" class="panel">
-<canvas id="ascentCanvas"></canvas>
-<div class="content center">
-<h1>Everything has an end.</h1>
-</div>
+<!-- LAST ASCENT -->
+<section id="last">
+<div class="singularity"></div>
+<h1>LAST ASCENT</h1>
+<p>When singularity becomes sphere.</p>
 </section>
 
-<section id="work" class="panel work">
-<div class="content center">
-<h1>Our Work</h1>
-<a href="https://youtube.com" target="_blank">YouTube</a>
-<a href="https://instagram.com" target="_blank">Instagram</a>
-</div>
-</section>
+<script>
 
-</div>
+/* Countdown to 10 March 2026 */
+const targetDate = new Date("March 10, 2026 00:00:00").getTime();
 
-<script src="script.js"></script>
+setInterval(()=>{
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+const days = Math.floor(distance / (1000*60*60*24));
+const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+
+document.getElementById("countdown").innerHTML = days+" Days "+hours+" Hours";
+},1000);
+
+</script>
+
 </body>
 </html>
